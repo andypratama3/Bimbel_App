@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ResisterGuruController;
 use App\Http\Controllers\RegisterBimbelController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\BimbelController as DashboardBimbelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +23,17 @@ Route::get('/', function () {
 
 
 Route::get('/register-bimbel',[RegisterBimbelController::class, 'index'])->name('register.bimbel');
-Route::get('/register-bimbel-post',[RegisterBimbelController::class, 'store'])->name('register.bimbel.store');
+Route::post('/register-bimbel-store',[RegisterBimbelController::class, 'store'])->name('register.bimbel.store');
+Route::get('/register-bimbel-status',[RegisterBimbelController::class, 'status'])->name('register.bimbel.status');
 Route::get('/register-guru',[RegisterGuruController::class, 'index'])->name('register.guru');
 
 
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/',DashboardController::class)->name('dashboard');
 
+    Route::group(['prefix' => 'datamaster'], function () {
+        Route::resource('pendaftar-bimbel', DashboardBimbelController::class, ['names' => 'dashboard.datamaster.pendafataran.bimbel']);
+    });
 });
 
 // Route::middleware([
