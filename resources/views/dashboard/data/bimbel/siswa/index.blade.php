@@ -23,7 +23,7 @@
 <div class="col-md-12" id="">
     <div class="row">
         <div class="card" id="card">
-            <h5 class="card-title text-center">Data Pendaftar Bimbel</h5>
+            <h5 class="card-title text-center">Data Siswa Bimbel</h5>
             <div class="card-body">
               <table class="table table-responsive table-hover text-center fon">
                 <thead>
@@ -49,11 +49,11 @@
                             <td>{{ $data->jenjang_sekolah }}</td>
                             <td>{{ $data->tanggal_mulai }}</td>
                             <td>
-                                <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.show', $data->slug) }}" class="btn btn-secondary btn-sm"><i class="bi bi-eye"></i></a>
-                                <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.edit', $data->slug) }}" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>
+                                <a href="{{ route('dashboard.datamaster.siswa.bimbel.show', $data->slug) }}" class="btn btn-secondary btn-sm"><i class="bi bi-eye"></i></a>
+                                <a href="{{ route('dashboard.datamaster.siswa.bimbel.edit', $data->slug) }}" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>
                                 <a href="#" data-id="{{ $data->slug }}" class="btn btn-danger btn-sm delete"
                                     title="Hapus">
-                                    <form action="{{ route('dashboard.datamaster.pendaftar.bimbel.destroy', $data->slug) }}"
+                                    <form action="{{ route('dashboard.datamaster.siswa.bimbel.destroy', $data->slug) }}"
                                         id="delete-{{ $data->slug }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         @method('delete')
@@ -62,9 +62,7 @@
                             </td>
                         </tr>
                     @empty
-                    <td colspan="8">
-                        <strong>0 Data Found</strong>
-                    </td>
+
                     @endforelse
                 </tbody>
               </table>

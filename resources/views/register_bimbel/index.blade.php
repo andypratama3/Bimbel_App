@@ -38,7 +38,7 @@
                                             <label for="nama_anak">Nama Lengkap Anak <code>*</code></label>
                                             <input type="text" class="form-control" name="nama_anak" value="{{ old('nama_anak') }}">
                                             <div class="invalid-feedback">
-                                               
+
                                               </div>
                                         </div>
                                     </div>
@@ -248,7 +248,7 @@
                                         <div class="form-group">
                                             <label for="">Upload Bukti Pembayaran</label>
                                             <div class="mb-3">
-                                                <input class="form-control" type="file" id="">
+                                                <input class="form-control" name="image_pembayaran" type="file" id="">
                                               </div>
                                         </div>
                                     </div>

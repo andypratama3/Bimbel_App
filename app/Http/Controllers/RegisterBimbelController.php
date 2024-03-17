@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bimbel;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class RegisterBimbelController extends Controller
@@ -35,6 +36,16 @@ class RegisterBimbelController extends Controller
 
        ]);
        $jadwal_hari = implode(',', $request->jadwal_hari);
+       $image_pembayaran = $request->image_pembayaran;
+       if($image_pembayaran){
+            $foto = $image_pembayaran;
+            $ext = $foto->getClientOriginalExtension();
+
+            //upload foto to folder
+            $upload_path = storage_path('img/register-bimbel/pembayaran/');
+            $picture_name = 'Pembayaran_'.Str::slug($request->nama_anaka).'_'.date('YmdHis').".$ext";
+            $foto->move($upload_path, $picture_name);
+       }
        $register = Bimbel::create([
             'nama_anak' => $request->nama_anak,
             'jk' => $request->jk,
@@ -57,6 +68,7 @@ class RegisterBimbelController extends Controller
             'catatan_anak_didik' => $request->catatan_anak_didil,
             'catatan_guru_les' => $request->catatan_guru_les,
             'informasi_bimbel' => $request->informasi_bimbel,
+            'image_pembayaran' => $picture_name,
        ]);
        $register->save();
        return redirect()->route('register.bimbel.status')->with('Sukses Mendaftar');

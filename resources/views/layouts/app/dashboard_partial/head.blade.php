@@ -24,3 +24,4 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets_dashboard/css/style.css')}}" rel="stylesheet">
+  @stack('css_dashboard')

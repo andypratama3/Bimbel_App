@@ -34,7 +34,8 @@ return new class extends Migration
             $table->string('catatan_anak_didik')->nullable();
             $table->string('catatan_guru_les')->nullable();
             $table->string('informasi_bimbel')->nullable();
-            $table->string('status')->default('1');
+            $table->string('status')->default('0');
+            $table->string('image_pembayaran');
             $table->string('slug');
             $table->timestamps();
         });

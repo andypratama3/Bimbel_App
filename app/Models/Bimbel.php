@@ -35,6 +35,8 @@ class Bimbel extends Model
             'catatan_anak_didik',
             'catatan_guru_les',
             'informasi_bimbel',
+            'foto_pembayaran',
+            'nama_pembayar',
             'slug',
     ];
     public function setNama_AnakAttribute($value)

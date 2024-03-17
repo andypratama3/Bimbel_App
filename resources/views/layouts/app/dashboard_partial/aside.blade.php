@@ -12,17 +12,31 @@
         <i class="bi bi-gear"></i><span>Data Master</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="components-nav" class="nav-content collapse {{ Request::routeIs('dashboard.datamaster.*') ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
+        {{-- <h2 class="side-bar-title">Bimbel</h2>
+        <hr class="side-bar"> --}}
         <li class="nav-item">
-          <a href="{{ route('dashboard.datamaster.pendafataran.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendafataran.bimbel.*') ? '' : 'collapsed' }}">
+          <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendafataran.bimbel.*') ? '' : 'collapsed' }}">
             <i class="bi bi-circle"></i><span>Data Pendaftaran Bimbel</span>
           </a>
         </li>
-        <li>
-          <a href="components-accordion.html">
+        <li class="nav-item">
+          <a href="{{ route('dashboard.datamaster.siswa.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.siswa.bimbel.*') ? '' : 'collapsed' }}">
             <i class="bi bi-circle"></i><span>Data Murid Bimbel</span>
           </a>
         </li>
+        <hr>
+        <li class="nav-item">
+          <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendafataran.bimbel.*') ? '' : 'collapsed' }}">
+            <i class="bi bi-circle"></i><span>Pendaftaran Guru</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('dashboard.datamaster.siswa.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.siswa.bimbel.*') ? '' : 'collapsed' }}">
+            <i class="bi bi-circle"></i><span>Guru Bimbel</span>
+          </a>
+        </li>
       </ul>
+
     </li>
 
     <li class="nav-item">
