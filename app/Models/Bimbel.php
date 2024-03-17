@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bimbel extends Model
 {
-    use HasFactory,UsesUuid;
+    use HasFactory,UsesUuid,NameHasSlug;
     protected $table = 'bimbels';
 
     protected $fillable = [
@@ -37,15 +37,16 @@ class Bimbel extends Model
             'informasi_bimbel',
             'foto_pembayaran',
             'nama_pembayar',
+            'status',
             'slug',
     ];
-    public function setNama_AnakAttribute($value)
-    {
-        $this->attributes['nama_anak'] = $value;
-        $this->attributes['slug'] = Str::slug($value).'-'.Str::random(4);
-    }
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+    // public function setNama_AnakAttribute($value)
+    // {
+    //     $this->attributes['nama_anak'] = $value;
+    //     $this->attributes['slug'] = Str::slug($value).'-'.Str::random(4);
+    // }
+    // public function getRouteKeyName()
+    // {
+    //     return 'slug';
+    // }
 }

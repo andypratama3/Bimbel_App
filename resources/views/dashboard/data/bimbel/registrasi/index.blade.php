@@ -11,15 +11,7 @@
 @endpush
 @section('title','Registrasi Bimbel')
 @section('content')
-<div class="pagetitle">
-    <h1>Dashboard</h1>
-    <nav>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-    </nav>
-</div><!-- End Page Title -->
+
 <div class="col-md-12" id="">
     <div class="row">
         <div class="card" id="card">

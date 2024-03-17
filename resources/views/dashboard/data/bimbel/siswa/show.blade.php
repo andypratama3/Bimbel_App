@@ -153,6 +153,7 @@
                                             <input readonly type="text" class="form-control" name="catatan_guru_les" value="{{ $bimbel->catatan_guru_les }}" placeholder="Catatan Guru Les">
                                         </div>
                                     </div>
+                                    @if($bimbel->informasi_bimbel != null)
                                     <div class="col-md-12 mt-2">
                                         <div class="form-group">
                                             <label for="">Tahu Info tentang Bimbel Privat Cermat ini dari? </label>
@@ -161,12 +162,17 @@
                                             </select>
                                         </div>
                                     </div>
+                                    @else
+                                    @endif
+                                    @if($bimbel->image_pembayaran != null)
                                     <div class="col-md-6 mt-2">
                                         <div class="form-group">
                                             <label for="">Upload Bukti Pembayaran</label>
                                                 <img src="{{ $bimbel->foto_pembayaran }}" alt="" class="img-fluid">
                                         </div>
                                     </div>
+                                    @else
+                                    @endif
                                     <div class="col-md-12 mt-5">
                                         <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="btn btn-danger">Kembali</a>
                                         <button type="button" id="form-1-btn" class="btn btn-primary float-end">Lanjut</button>

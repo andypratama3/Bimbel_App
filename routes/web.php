@@ -37,7 +37,7 @@ Route::post('/register-guru/store',[RegisterGuruController::class, 'store'])->na
 Route::get('/register-guru-status',[RegisterGuruController::class, 'status'])->name('register.guru.status');
 
 
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth','role: 1','role: 2']], function () {
     Route::get('/',DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'datamaster'], function () {

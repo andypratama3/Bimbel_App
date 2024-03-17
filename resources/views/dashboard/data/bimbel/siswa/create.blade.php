@@ -4,6 +4,7 @@
 <form action="{{ route('dashboard.datamaster.siswa.bimbel.store') }}" method="POST">
     @csrf
     <div class="row">
+        @include('layouts.flashmessage')
         <h5 class="card-title text-center"><strong>Tambah Siswa</strong></h5>
             <div class="col-md-6 mt-2">
                 <div class="form-group">
