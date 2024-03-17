@@ -6,7 +6,7 @@ use App\Http\Controllers\Dashboard\GuruController;
 use App\Http\Controllers\RegisterBimbelController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\PaketBimbelController as DashboardPaketBimbelController;
-use App\Http\Controllers\ResisterGuruController as DashboardGuruController;
+use App\Http\Controllers\Dashboard\GuruController as DashboardGuruController;
 use App\Http\Controllers\Dashboard\BimbelController as DashboardBimbelController;
 use App\Http\Controllers\Dashboard\SiswaBimbelController as DashboardSiswaBimbelController;
 use App\Http\Controllers\Dashboard\PendaftarGuruController as DashboardPendaftarGuruController;
@@ -44,7 +44,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::resource('pendaftar-bimbel', DashboardBimbelController::class, ['names' => 'dashboard.datamaster.pendaftar.bimbel'])->except('create','store');
         Route::resource('siswa-bimbel', DashboardSiswaBimbelController::class, ['names' => 'dashboard.datamaster.siswa.bimbel']);
         Route::resource('pendaftar-guru', DashboardPendaftarGuruController::class, ['names' => 'dashboard.datamaster.pendaftar.guru']);
-        Route::resource('guru-bimbel', DashboardGuruController::class, ['names' => 'dashboard.datamaster.pendaftar.guru']);
+        Route::resource('guru-bimbel', DashboardGuruController::class, ['names' => 'dashboard.datamaster.guru']);
         Route::resource('paket-bimbel', DashboardPaketBimbelController::class, ['names' => 'dashboard.datamaster.paket.bimbel']);
     });
 });

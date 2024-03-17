@@ -26,12 +26,12 @@
         </li>
         <hr>
         <li class="nav-item">
-          <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendafataran.bimbel.*') ? '' : 'collapsed' }}">
+          <a href="{{ route('dashboard.datamaster.pendaftar.guru.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendaftar.guru.*') ? '' : 'collapsed' }}">
             <i class="bi bi-circle"></i><span>Pendaftaran Guru</span>
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('dashboard.datamaster.siswa.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.siswa.bimbel.*') ? '' : 'collapsed' }}">
+          <a href="{{ route('dashboard.datamaster.guru.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.guru.*') ? '' : 'collapsed' }}">
             <i class="bi bi-circle"></i><span>Guru Bimbel</span>
           </a>
         </li>

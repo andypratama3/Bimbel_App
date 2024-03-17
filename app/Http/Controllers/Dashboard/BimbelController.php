@@ -11,10 +11,11 @@ class BimbelController extends Controller
     public function index()
     {
         $limit = 20;
-        $register_Data = Bimbel::orderBy('created_at')->where('status', '0')->paginate($limit);
+        $register_Data = Bimbel::orderBy('created_at','asc')->where('status', '0')->paginate($limit);
         $no = $limit * ($register_Data->currentPage() - 1);
         return view('dashboard.data.bimbel.registrasi.index', compact('register_Data','no'));
     }
+
     public function show($slug)
     {
         $bimbel = Bimbel::where('slug', $slug)->firstOrFail();

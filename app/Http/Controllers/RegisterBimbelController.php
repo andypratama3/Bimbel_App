@@ -23,7 +23,7 @@ class RegisterBimbelController extends Controller
             'bimbingan_konsultasi' => 'required',
             'program_les' => 'required',
             'jumlah_pertemuan' => 'required',
-            'jadwal_hari' => 'array',
+            'jadwal_hari' => 'required',
             'jam_les' => 'required',
             'tanggal_mulai' => 'required',
             'pelajaran_tertentu' => 'required',
@@ -33,6 +33,7 @@ class RegisterBimbelController extends Controller
             'agama' => 'required',
             'orang_tua' => 'required',
             'no_telp' => 'required',
+            'image_pembayaran' => 'required|min:jpg,png,jpeg',
 
        ]);
        $jadwal_hari = implode(',', $request->jadwal_hari);
@@ -42,8 +43,8 @@ class RegisterBimbelController extends Controller
             $ext = $foto->getClientOriginalExtension();
 
             //upload foto to folder
-            $upload_path = storage_path('img/register-bimbel/pembayaran/');
-            $picture_name = 'Pembayaran_'.Str::slug($request->nama_anaka).'_'.date('YmdHis').".$ext";
+            $upload_path = storage_path('storage/register-bimbel/img/pembayaran/');
+            $picture_name = 'Pembayaran_'.Str::slug($request->nama_anak).'_'.date('YmdHis').".$ext";
             $foto->move($upload_path, $picture_name);
        }
        $register = Bimbel::create([

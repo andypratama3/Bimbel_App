@@ -11,19 +11,11 @@
 @endpush
 @section('title','Registrasi Bimbel')
 @section('content')
-<div class="pagetitle">
-    <h1>Dashboard</h1>
-    <nav>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
-        </ol>
-    </nav>
-</div><!-- End Page Title -->
+
 <div class="col-md-12" id="">
     <div class="row">
         <div class="card" id="card">
-            <h5 class="card-title text-center">Data Siswa Bimbel</h5>
+            <h5 class="card-title text-center">Data Siswa Bimbel <a href="{{ route('dashboard.datamaster.siswa.bimbel.create') }}" class="btn btn-primary float-end">Tambah</a></h5>
             <div class="card-body">
               <table class="table table-responsive table-hover text-center fon">
                 <thead>

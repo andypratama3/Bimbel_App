@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('gurus', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->string('cv');
+            $table->string('cv')->nullable();
             $table->string('whatsapp');
             $table->string('mata_pelajaran');
             $table->string('status')->default('0');
