@@ -46,7 +46,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::resource('pendaftar-guru', DashboardPendaftarGuruController::class, ['names' => 'dashboard.datamaster.pendaftar.guru']);
         Route::resource('guru-bimbel', DashboardGuruController::class, ['names' => 'dashboard.datamaster.guru']);
     });
-    Route::resource('paket-bimbel', DashboardPaketBimbelController::class, ['names' => 'dashboard.datamaster.paket.bimbel']);
+    Route::resource('paket-bimbel', DashboardPaketBimbelController::class, ['names' => 'dashboard.paket.bimbel']);
 });
 
 // Route::middleware([
