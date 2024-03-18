@@ -11,7 +11,7 @@ class SiswaBimbelController extends Controller
     public function index()
     {
         $limit = 20;
-        $register_Data = Bimbel::orderBy('created_at')->where('status', '1')->paginate($limit);
+        $register_Data = Bimbel::orderBy('created_at')->where('status', '2')->paginate($limit);
         $no = $limit * ($register_Data->currentPage() - 1);
         return view('dashboard.data.bimbel.siswa.index', compact('register_Data','no'));
     }
@@ -65,7 +65,7 @@ class SiswaBimbelController extends Controller
             'catatan_anak_didik' => $request->catatan_anak_didil,
             'catatan_guru_les' => $request->catatan_guru_les,
             'informasi_bimbel' => $request->informasi_bimbel,
-            'status' => 1,
+            'status' => 2,
        ]);
         $register->save();
         return redirect()->route('dashboard.datamaster.siswa.bimbel.index')->with('success','Berhasil Menambah Siswa');
@@ -85,7 +85,32 @@ class SiswaBimbelController extends Controller
     public function update(Request $request,$slug)
     {
         $bimbel = Bimbel::where('slug', $slug)->firstOrFail();
-        $bimbel->status = $request->status;
+
+        $jadwal_hari = implode(',', $request->jadwal_hari);
+
+        $bimbel->nama_anak = $request->nama_anak;
+        $bimbel->jk = $request->jk;
+        $bimbel->usia = $request->usia;
+        $bimbel->kelas_berjalan = $request->kelas_berjalan;
+        $bimbel->jenjang_sekolah = $request->jenjang_sekolah;
+        $bimbel->bimbingan_konsultasi = $request->bimbingan_konsultasi;
+        $bimbel->program_les = $request->program_les;
+        $bimbel->jumlah_pertemuan = $request->jumlah_pertemuan;
+        $bimbel->jadwal_hari = $jadwal_hari;
+        $bimbel->jam_les = $request->jam_les;
+        $bimbel->tanggal_mulai = $request->tanggal_mulai;
+        $bimbel->pelajaran_tertentu = $request->pelajaran_tertentu;
+        $bimbel->mengaji = $request->mengaji;
+        $bimbel->alamat = $request->alamat;
+        $bimbel->asal_sekolah = $request->asal_sekolah;
+        $bimbel->agama = $request->agama;
+        $bimbel->orang_tua = $request->orang_tua;
+        $bimbel->no_telp = $request->no_telp;
+        $bimbel->catatan_anak_didik = $request->catatan_anak_didil;
+        $bimbel->catatan_guru_les = $request->catatan_guru_les;
+        $bimbel->informasi_bimbel = $request->informasi_bimbel;
+        $bimbel->status = 2;
+        
         $bimbel->update();
         return redirect()->route('dashboard.datamaster.siswa.bimbel.index')->with('success','Berhasil Update Data');
 

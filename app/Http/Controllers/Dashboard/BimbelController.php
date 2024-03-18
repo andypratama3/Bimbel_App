@@ -31,6 +31,9 @@ class BimbelController extends Controller
     public function update(Request $request,$slug)
     {
         $bimbel = Bimbel::where('slug', $slug)->firstOrFail();
+        $request->validate([
+                'status' => 'required',
+        ]);
         $bimbel->status = $request->status;
         $bimbel->update();
         return redirect()->route('dashboard.datamaster.pendaftar.bimbel.index')->with('success','Berhasil Update Data');

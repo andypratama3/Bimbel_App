@@ -6,7 +6,7 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <form action="{{ route('dashboard.datamaster.pendaftar.bimbel.update', $bimbel->slug) }}" method="POST">
+                <form action="{{ route('dashboard.datamaster.siswa.bimbel.update', $bimbel->slug) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="tab-content">
@@ -162,27 +162,19 @@
                                             </select>
                                         </div>
                                     </div>
+                                    @if($bimbel->image_pembayaran != null)
                                     <div class="col-md-6 mt-2">
-                                        <div class="form-group">
-                                            <label for="">Upload Bukti Pembayaran</label>
-                                            <img src="{{ $bimbel->foto_pembayaran }}" alt="" class="img-fluid">
-                                            <input type="hidden" name="foto_pembayaran" value="{{ $bimbel->foto_pembayaran }}">
+                                        <div class="form-group text-center">
+                                            <label for="">Bukti Pembayaran</label>
+                                            <img src="{{ asset('storage/register-bimbel/img/pembayaran/'. $bimbel->image_pembayaran) }}" alt="" class="img-fluid">
                                         </div>
+                                        <a href="{{ asset('storage/register-bimbel/img/pembayaran/'. $bimbel->image_pembayaran) }}" download="{{ $bimbel->image_pembayaran }}" class="btn btn-primary mt-2">Download</a>
                                     </div>
-                                    <div class="col-md-6 mt-2">
-                                        <div class="form-group">
-                                            <label for="">Konfirmasi Siswa</label>
-                                            <select name="status" class="form-control">
-                                                <option selected>Pilih Konfirmasi</option>
-                                                <option value="0">Tolak</option>
-                                                <option value="1">Belum Di Terima</option>
-                                                <option value="2">Terima</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    @else
+                                    @endif
                                     <div class="col-md-12 mt-5">
-                                        <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="btn btn-danger">Kembali</a>
-                                        <button type="submit" class="btn btn-primary float-end">Lanjut</button>
+                                        <a href="{{ route('dashboard.datamaster.siswa.bimbel.index') }}" class="btn btn-danger">Kembali</a>
+                                        <button type="submit" class="btn btn-primary float-end">Update</button>
                                     </div>
                             </div>
                         </div>

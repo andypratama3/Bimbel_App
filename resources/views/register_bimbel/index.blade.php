@@ -27,7 +27,7 @@
                         </li>
                     </ul>
                 </div>
-                <form action="{{ route('register.bimbel.store') }}" method="POST" id="form-register-bimbel">
+                <form action="{{ route('register.bimbel.store') }}" method="POST" id="form-register-bimbel" enctype="multipart/form-data">
                     @csrf
                     <div class="tab-content">
                         <div class="tab-pane fade show active form-1" id="form-1">

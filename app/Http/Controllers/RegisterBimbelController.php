@@ -12,6 +12,7 @@ class RegisterBimbelController extends Controller
     {
         return view('register_bimbel.index');
     }
+    
     public function store(Request $request)
     {
        $request->validate([
@@ -33,9 +34,10 @@ class RegisterBimbelController extends Controller
             'agama' => 'required',
             'orang_tua' => 'required',
             'no_telp' => 'required',
-            'image_pembayaran' => 'required|min:jpg,png,jpeg',
+            'image_pembayaran' => 'required|image',
 
        ]);
+
        $jadwal_hari = implode(',', $request->jadwal_hari);
        $image_pembayaran = $request->image_pembayaran;
        if($image_pembayaran){
@@ -43,7 +45,7 @@ class RegisterBimbelController extends Controller
             $ext = $foto->getClientOriginalExtension();
 
             //upload foto to folder
-            $upload_path = storage_path('storage/register-bimbel/img/pembayaran/');
+            $upload_path = public_path('storage/register-bimbel/img/pembayaran/');
             $picture_name = 'Pembayaran_'.Str::slug($request->nama_anak).'_'.date('YmdHis').".$ext";
             $foto->move($upload_path, $picture_name);
        }
@@ -74,8 +76,10 @@ class RegisterBimbelController extends Controller
        $register->save();
        return redirect()->route('register.bimbel.status')->with('Sukses Mendaftar');
     }
+
     public function status()
     {
         return view('register_bimbel.after-register');
     }
+
 }

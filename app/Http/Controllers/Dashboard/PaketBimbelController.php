@@ -9,6 +9,7 @@ class PaketBimbelController extends Controller
 {
     public function index()
     {
+        $pakets = PaketBimbel::select([''])
         return view('dashboard.data.paket-bimbel.index');
     }
 }

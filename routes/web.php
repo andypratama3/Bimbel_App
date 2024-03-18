@@ -37,7 +37,7 @@ Route::post('/register-guru/store',[RegisterGuruController::class, 'store'])->na
 Route::get('/register-guru-status',[RegisterGuruController::class, 'status'])->name('register.guru.status');
 
 
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth','role: 1','role: 2']], function () {
+Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/',DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'datamaster'], function () {
@@ -45,8 +45,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth','role: 1','role: 
         Route::resource('siswa-bimbel', DashboardSiswaBimbelController::class, ['names' => 'dashboard.datamaster.siswa.bimbel']);
         Route::resource('pendaftar-guru', DashboardPendaftarGuruController::class, ['names' => 'dashboard.datamaster.pendaftar.guru']);
         Route::resource('guru-bimbel', DashboardGuruController::class, ['names' => 'dashboard.datamaster.guru']);
-        Route::resource('paket-bimbel', DashboardPaketBimbelController::class, ['names' => 'dashboard.datamaster.paket.bimbel']);
     });
+    Route::resource('paket-bimbel', DashboardPaketBimbelController::class, ['names' => 'dashboard.datamaster.paket.bimbel']);
 });
 
 // Route::middleware([

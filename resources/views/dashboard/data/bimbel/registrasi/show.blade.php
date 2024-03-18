@@ -162,14 +162,16 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6 mt-2">
-                                        <div class="form-group">
-                                            <label for="">Upload Bukti Pembayaran</label>
-                                                <img src="{{ $bimbel->foto_pembayaran }}" alt="" class="img-fluid">
+                                        <div class="form-group text-center">
+                                            <label for="">Bukti Pembayaran</label>
+                                            <img src="{{ asset('storage/register-bimbel/img/pembayaran/'. $bimbel->image_pembayaran) }}" alt="" class="img-fluid">
                                         </div>
+                                        <a href="{{ asset('storage/register-bimbel/img/pembayaran/'. $bimbel->image_pembayaran) }}" download="{{ $bimbel->image_pembayaran }}" class="btn btn-primary mt-2">Download</a>
                                     </div>
+
                                     <div class="col-md-12 mt-5">
                                         <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="btn btn-danger">Kembali</a>
-                                        <button type="button" id="form-1-btn" class="btn btn-primary float-end">Lanjut</button>
+
                                     </div>
                             </div>
                         </div>

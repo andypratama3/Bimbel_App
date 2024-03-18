@@ -38,6 +38,7 @@ class Bimbel extends Model
             'foto_pembayaran',
             'nama_pembayar',
             'status',
+            'image_pembayaran',
             'slug',
     ];
     // public function setNama_AnakAttribute($value)
