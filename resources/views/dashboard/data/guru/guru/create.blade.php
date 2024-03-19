@@ -26,7 +26,26 @@
                 <div class="row mb-3">
                   <label for="" class="col-sm-2 col-form-label">Mata Pelajaran <code>*</code></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="mata_pelajaran" value="{{ old('whatsapp') }}" placeholder="Contoh: Ipa,Ips">
+                    <input type="text" class="form-control" name="mata_pelajaran" value="{{ old('mata_pelajaran') }}" placeholder="Contoh: Ipa,Ips">
+                  </div>
+                </div>
+
+                {{-- register user for login --}}
+                <div class="col-md-12 text-center">
+                    <hr>
+                    <h4>Registrasi User</h4>
+                    <hr>
+                </div>
+                <div class="row mb-3">
+                  <label for="" class="col-sm-2 col-form-label">Email <code>*</code></label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" name="email" value="{{ old('email') }}">
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="" class="col-sm-2 col-form-label">Foto <code>*</code></label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" name="foto" value="{{ old('foto') }}">
                   </div>
                 </div>
 

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\RegisterGuruController;
 use App\Http\Controllers\Dashboard\GuruController;
 use App\Http\Controllers\RegisterBimbelController;
@@ -22,20 +23,23 @@ use App\Http\Controllers\Dashboard\PendaftarGuruController as DashboardPendaftar
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::group(['prefix' => '/'], function () {
+
+    Route::get('/',BerandaController::class)->name('beranda.index');
+    //bimbel
+    Route::get('/register-bimbel',[RegisterBimbelController::class, 'index'])->name('register.bimbel');
+    Route::post('/register-bimbel-store',[RegisterBimbelController::class, 'store'])->name('register.bimbel.store');
+    Route::get('/register-bimbel-status',[RegisterBimbelController::class, 'status'])->name('register.bimbel.status');
+    //gurus
+    Route::get('/register-guru',[RegisterGuruController::class, 'index'])->name('register.guru');
+    Route::post('/register-guru/store',[RegisterGuruController::class, 'store'])->name('register.guru.store');
+    Route::post('/register-guru/store',[RegisterGuruController::class, 'store'])->name('register.guru.store');
+    Route::get('/register-guru-status',[RegisterGuruController::class, 'status'])->name('register.guru.status');
 });
-
-//bimbel
-Route::get('/register-bimbel',[RegisterBimbelController::class, 'index'])->name('register.bimbel');
-Route::post('/register-bimbel-store',[RegisterBimbelController::class, 'store'])->name('register.bimbel.store');
-Route::get('/register-bimbel-status',[RegisterBimbelController::class, 'status'])->name('register.bimbel.status');
-//gurus
-Route::get('/register-guru',[RegisterGuruController::class, 'index'])->name('register.guru');
-Route::post('/register-guru/store',[RegisterGuruController::class, 'store'])->name('register.guru.store');
-Route::post('/register-guru/store',[RegisterGuruController::class, 'store'])->name('register.guru.store');
-Route::get('/register-guru-status',[RegisterGuruController::class, 'status'])->name('register.guru.status');
-
 
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('/',DashboardController::class)->name('dashboard');

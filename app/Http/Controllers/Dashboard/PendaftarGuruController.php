@@ -18,7 +18,6 @@ class PendaftarGuruController extends Controller
     public function edit($slug)
     {
         $guru = Guru::where('slug', $slug)->firstOrFail();
-        // dd(public_path('storage/register-guru/cv/'.$guru->cv));
         return view('dashboard.data.guru.registrasi.edit', compact('guru'));
     }
     public function update(Request $request, $slug)

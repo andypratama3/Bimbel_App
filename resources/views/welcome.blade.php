@@ -8,7 +8,6 @@
         <div class="row">
             <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
                 <h1>Bimbel Samarinda</h1>
-                {{-- <h2>Accusantium quam, aliquam ultricies eget tempor id, aliquam eget nibh et. Maecen aliquam, risus at semper. Proin iaculis purus consequat sem cure digni ssim. Donec porttitora entum.</h2> --}}
                 <div>
                     <a href="{{ route('register.bimbel') }}" class="btn-get-started"><i class="bi bi-book"></i> Daftar
                         Bimbel</a>
@@ -138,84 +137,24 @@
 
         <div class="section-title">
             <h2>Profile Guru</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
-                sit in iste officiis commodi quidem hic quas.</p>
+            <p>Bimbel Samarinda</p>
         </div>
 
         <div class="row">
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            @foreach ($gurus as $guru)
+            <div class="col-lg-4 col-md-7 d-flex align-items-stretch">
                 <div class="member">
                     <div class="member-img">
-                        <img src="{{ asset('assets/img/team/team-1.jpg')}}" class="img-fluid" alt="">
-                        {{-- <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div> --}}
+                        <img src="{{ asset('storage/guru/img/'. $guru->user->profile_photo_path)}}" class="img-fluid" alt="">
                     </div>
                     <div class="member-info">
-                        <h4>Walter White</h4>
-                        <span>Chief Executive Officer</span>
+                        <h4>{{ $guru->name }}</h4>
+                        <span>{{ $guru->mata_pelajaran }}</span>
                     </div>
                 </div>
             </div>
+            @endforeach
 
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                <div class="member">
-                    <div class="member-img">
-                        <img src="{{ asset('assets/img/team/team-2.jpg')}}" class="img-fluid" alt="">
-                        {{-- <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div> --}}
-                    </div>
-                    <div class="member-info">
-                        <h4>Sarah Jhonson</h4>
-                        <span>Product Manager</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                <div class="member">
-                    <div class="member-img">
-                        <img src="{{ asset('assets/img/team/team-3.jpg')}}" class="img-fluid" alt="">
-                        {{-- <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div> --}}
-                    </div>
-                    <div class="member-info">
-                        <h4>William Anderson</h4>
-                        <span>CTO</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                <div class="member">
-                    <div class="member-img">
-                        <img src="{{ asset('assets/img/team/team-4.jpg')}}" class="img-fluid" alt="">
-                        {{-- <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div> --}}
-                    </div>
-                    <div class="member-info">
-                        <h4>Amanda Jepson</h4>
-                        <span>Accountant</span>
-                    </div>
-                </div>
-            </div>
 
         </div>
 
@@ -230,78 +169,16 @@
         </div>
 
         <div class="row no-gutters">
-
-            <div class="col-lg-3 col-md-4">
+            @foreach($pakets as $paket)
+            <div class="col-lg-4 col-md-5">
                 <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-1.jpg')}}" class="galleery-lightbox"
+                    <a href="{{ asset('storage/paket/img/'. $paket->foto)}}" class="galleery-lightbox"
                         data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-1.jpg')}}" alt="" class="img-fluid">
+                        <img src="{{ asset('storage/paket/img/'. $paket->foto)}}" alt="" class="img-fluid">
                     </a>
                 </div>
             </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-2.jpg')}}" class="galleery-lightbox"
-                        data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-2.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-3.jpg')}}" class="galleery-lightbox"
-                        data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-3.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-4.jpg')}}" class="galleery-lightbox"
-                        data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-4.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-5.jpg')}}" class="galleery-lightbox"
-                        data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-5.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-6.jpg')}}" class="galleery-lightbox"
-                        data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-6.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-7.jpg')}}" class="galleery-lightbox"
-                        data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-7.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-                <div class="gallery-item">
-                    <a href="{{ asset('assets/img/gallery/gallery-8.jpg')}}" class="galleery-lightbox"
-                        data-gallery="gallery-item">
-                        <img src="{{ asset('assets/img/gallery/gallery-8.jpg')}}" alt="" class="img-fluid">
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     </div>

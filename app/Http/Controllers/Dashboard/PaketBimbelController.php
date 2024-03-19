@@ -33,7 +33,7 @@ class PaketBimbelController extends Controller
             $ext = $foto->getClientOriginalExtension();
             //path
             $upload_path = public_path('storage/paket/img/');
-            $picture_name = 'Pembayaran_'.Str::slug($request->name).'_'.date('YmdHis').".$ext";
+            $picture_name = 'Paket_'.Str::slug($request->name).'_'.date('YmdHis').".$ext";
             $foto->move($upload_path, $picture_name);
         }
 

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('whatsapp');
             $table->string('mata_pelajaran');
             $table->string('status')->default('0');
+            $table->string('foto')->nullable();
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->string('slug');
             $table->timestamps();
         });

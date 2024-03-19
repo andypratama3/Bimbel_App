@@ -22,6 +22,7 @@
                                             <label for="nama_anak">WhatsApp</label>
                                             <input type="text" class="form-control" value="{{ $guru->whatsapp }}" readonly>
                                         </div>
+                                        <a href="https://wa.me/{{ $guru->whatsapp }}" target="__blank" class="btn btn-success btn-sm mt-3">Kirim Pesan</a>
                                     </div>
                                     <div class="col-md-6 mt-2">
                                         <div class="form-group">
@@ -31,7 +32,7 @@
                                     </div>
                                     <div class="col-md-6 mt-2">
                                         <div class="form-group">
-                                            <label for="nama_anak">Status Registrasi</label>
+                                            <label for="nama_anak">Status</label>
                                             <select name="status" id="" class="form-control">
                                                 <option value="{{ $guru->status }}">Baru Registrasi</option>
                                                 <option value="1">Tidak Di Terima</option>

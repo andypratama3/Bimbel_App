@@ -31,6 +31,31 @@
                   </div>
                 </div>
 
+                {{-- register user for login --}}
+
+                <div class="col-md-12 text-center">
+                    <hr>
+                    <h4>Registrasi User</h4>
+                    <hr>
+                </div>
+                <div class="row mb-3">
+                  <label for="" class="col-sm-2 col-form-label">Email <code>*</code></label>
+                  <div class="col-sm-10">
+                    @if(optional($guru->user)->email)
+                        <input type="text" class="form-control" name="email" value="{{ $guru->user->email }}">
+                    @else
+                        <input type="text" class="form-control" name="email" >
+                    @endif
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="" class="col-sm-2 col-form-label">Foto <code>*</code></label>
+                  <div class="col-sm-10">
+                    <input type="file" class="form-control" name="foto" value="{{ old('foto') }}">
+                  </div>
+
+                </div>
+
                 <div class="row mb-3">
                   <div class="col-sm-12">
                     <a href="{{ route('dashboard.datamaster.guru.index') }}" class="btn btn-danger">Kembali</a>
