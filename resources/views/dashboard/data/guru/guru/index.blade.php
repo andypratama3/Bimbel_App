@@ -14,7 +14,7 @@
 <div class="col-md-12" id="">
     <div class="row">
         <div class="card" id="card">
-            <h5 class="card-title text-center">Data Guru Bimbel <a href="{{ route('dashboard.datamaster.guru.create') }}" class="btn btn-primary float-end btn-sm">Tambah Data</a></h5>
+            <h5 class="card-title text-center">Data Guru Bimbel <a href="{{ route('dashboard.datamaster.guru.create') }}" style="margin-right: 20px;" class="btn btn-primary float-end btn-sm">Tambah Data</a></h5>
             <div class="card-body">
               <table class="table table-responsive table-hover text-center fon">
                 <thead>

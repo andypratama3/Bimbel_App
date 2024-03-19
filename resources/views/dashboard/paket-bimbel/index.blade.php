@@ -17,7 +17,7 @@
         <div class="col-md-12">
             <div class="card" id="card">
                 <h5 class="card-title text-center">Data Paket Bimbel <a
-                        href="{{ route('dashboard.paket.bimbel.create') }}" class="btn btn-primary float-end mr-2">Tambah</a>
+                        href="{{ route('dashboard.paket.bimbel.create') }}" class="btn btn-primary float-end" style="margin-right: 20px;">Tambah</a>
                 </h5>
                 <div class="card-body">
                     <table class="table table-responsive table-hover text-center fon">

@@ -8,6 +8,10 @@
     .table tr td {
         font-size: 14px;
     }
+    .bi-star{
+        color: yellow;
+        font-size: 20px;
+    }
 </style>
 @endpush
 @section('title','Grade Guru')
@@ -17,7 +21,7 @@
         <div class="col-md-12">
             <div class="card" id="card">
                 <h5 class="card-title text-center">Data Grade Guru <a href="{{ route('dashboard.grade.guru.create') }}"
-                        class="btn btn-primary float-end mr-2">Tambah</a>
+                        class="btn btn-primary float-end" style="margin-right: 20px;">Tambah</a>
                 </h5>
                 <div class="card-body">
                     <table class="table table-responsive table-hover text-center fon">
@@ -25,32 +29,46 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col">Guru</th>
+                                <th scope="col">Total</th>
                                 <th scope="col">Rating</th>
+                                <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse($grades as $grade)
-                            <tr>
-                                <td>{{ ++$no }}</td>
-                                <td>{{ $grade->name }}</td>
-                                {{-- <td><a href="{{ asset('storage/paket/img/'.$paket->foto) }}" target="__blank"
-                                        class="btn btn-success btn-sm">Lihat Foto</a></td>
-                                <td>
-                                    <a href="{{ route('dashboard.paket.bimbel.edit', $paket->slug) }}"
-                                        class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>
-                                    <a href="#" data-id="{{ $paket->slug }}" class="btn btn-danger btn-sm delete"
-                                        title="Hapus">
-                                        <form action="{{ route('dashboard.paket.bimbel.destroy', $paket->slug) }}"
-                                            id="delete-{{ $paket->slug }}" method="POST" enctype="multipart/form-data">
-                                            @csrf
-                                            @method('delete')
-                                        </form>
-                                        <i class="bi bi-trash"></i>
-                                </td> --}}
-                            </tr>
-                            @empty
+                            @foreach($grades_by_guru as $guruId => $count)
+                                <tr>
+                                    <td>{{ ++$no }}</td>
+                                    <td>{{ $grades->where('guru_id', $guruId)->first()->guru->name ?? 'Unknown' }}</td>
+                                    <td>{{ $count }}</td>
+                                    <td>
+                                        @if($starRatings[$guruId] >= 4.5)
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        @elseif ($starRatings[$guruId] >= 3.5)
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        @elseif ($starRatings[$guruId] >= 2.5)
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        @elseif ($starRatings[$guruId] >= 1.5)
+                                            <i class="bi bi-star"></i>
+                                            <i class="bi bi-star"></i>
+                                        @else
+                                            <i class="bi bi-star"></i>
+                                        @endif
+                                    </td>
 
-                            @endforelse
+                                    <td>
+                                        <a href="{{ route('dashboard.grade.guru.show', $guruId) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

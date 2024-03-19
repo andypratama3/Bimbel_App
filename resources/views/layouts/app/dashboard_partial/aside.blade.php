@@ -48,7 +48,7 @@
 
     <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.grade.guru.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.grade.guru.index') }}">
-          <i class="bi bi-user"></i>
+            <i class="bi bi-star-fill"></i>
           <span>Grade Guru</span>
         </a>
       </li><!-- End Profile Page Nav -->

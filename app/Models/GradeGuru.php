@@ -15,5 +15,13 @@ class GradeGuru extends Model
         'guru_id',
     ];
 
+    public function bimbel()
+    {
+        return $this->belongsTo(Bimbel::class, 'bimbel_id', 'id');
+    }
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'guru_id', 'id');
+    }
 
 }
