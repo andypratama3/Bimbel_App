@@ -142,6 +142,7 @@
 
         <div class="row">
             @foreach ($gurus as $guru)
+            @if(optional($guru->user)->profile_photo_path)
             <div class="col-lg-4 col-md-7 d-flex align-items-stretch">
                 <div class="member">
                     <div class="member-img">
@@ -153,6 +154,8 @@
                     </div>
                 </div>
             </div>
+            @else
+            @endif
             @endforeach
 
 
