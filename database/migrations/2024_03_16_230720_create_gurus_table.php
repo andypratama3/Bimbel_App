@@ -16,9 +16,16 @@ return new class extends Migration
             $table->string('name');
             $table->string('cv')->nullable();
             $table->string('whatsapp');
-            $table->string('mata_pelajaran');
             $table->string('status')->default('0');
             $table->string('foto')->nullable();
+
+            //jenjang tk,sd,smp, smk,
+            $table->string('jenjang')->nullable();
+
+            $table->string('paket');
+            //paket reguler,islami
+            $table->string('mata_pelajaran');
+
             $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->string('slug');
             $table->timestamps();

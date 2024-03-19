@@ -47,6 +47,13 @@
       </li><!-- End Profile Page Nav -->
 
     <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.grade.guru.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.grade.guru.index') }}">
+          <i class="bi bi-user"></i>
+          <span>Grade Guru</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+
+    <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
