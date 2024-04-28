@@ -38,6 +38,14 @@
                         </div>
                         <div class="col-md-12 mt-2 form-field">
                             <div class="form-group">
+                                <label for="">Jenjang <code>*</code></label>
+                                <input type="text" class="form-control" name="jenjang" value="{{ old('jenjang') }}"
+                                    placeholder="contoh : 822263674827">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-2 form-field">
+                            <div class="form-group">
                                 <label for="">Mata Pelajaran<code>*</code></label>
                                 <input type="text" class="form-control" name="mata_pelajaran"
                                     value="{{ old('mata_pelajaran') }}" placeholder="Contoh : Ipa,Ips">

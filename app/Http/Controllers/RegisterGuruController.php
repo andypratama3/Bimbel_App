@@ -38,6 +38,7 @@ class RegisterGuruController extends Controller
 
         $guru = new Guru();
         $guru->name = $request->name;
+        $guru->paket = '1';
         $guru->cv = $file_name;
         $guru->whatsapp = $request->whatsapp;
         $guru->mata_pelajaran = $request->mata_pelajaran;

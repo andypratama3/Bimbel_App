@@ -53,6 +53,7 @@ class GuruController extends Controller
         $guru->whatsapp = $request->whatsapp;
         $guru->mata_pelajaran = $request->mata_pelajaran;
         $guru->status = '2';
+        $guru->paket = '1';
         $user->foto = $picture_name;
         $guru->user_id = $user->id;
         $guru->save();
@@ -85,12 +86,7 @@ class GuruController extends Controller
             $foto->move($upload_path, $picture_name);
         }
 
-        $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->profile_photo_path = $picture_name;
-        $user->password = bcrypt('guru-bimbel123');
-        $user->save();
+        $user = User::where('id', $guru->user_id)->firstOrFail();
 
         $guru->name = $request->name;
         $guru->whatsapp = $request->whatsapp;

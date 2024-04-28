@@ -74,7 +74,7 @@
                 </div>
                 <div class="card-footer">
                     <ul class="pagination pagination-sm m-0 " style="float: right !important;">
-                        {{-- {{ $pakets->onEachSide(1)->links() }} --}}
+                        {{ $grades->onEachSide(1)->links() }}
                     </ul>
                 </div>
             </div>

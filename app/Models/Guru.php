@@ -17,6 +17,7 @@ class Guru extends Model
             'cv',
             'whatsapp',
             'mata_pelajaran',
+            'paket',
             'status',
             'foto',
             'slug',

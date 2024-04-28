@@ -19,10 +19,12 @@
                                     </div>
                                     <div class="col-md-6 mt-2">
                                         <div class="form-group">
-                                            <label for="nama_anak">WhatsApp</label>
-                                            <input type="text" class="form-control" value="{{ $guru->whatsapp }}" readonly>
+                                            <label for="">Nomor Telpon / WhatsApp </label>
+                                            <div class="input-group">
+                                                <input readonly type="text" class="form-control" name="no_telp" value="{{ $guru->whatsapp }}" readonly>
+                                                <a href="https://wa.me/{{ $guru->whatsapp }}" class="btn btn-success"><i class="bi bi-whatsapp"></i> Kirim Pesan</a>
+                                            </div>
                                         </div>
-                                        <a href="https://wa.me/{{ $guru->whatsapp }}" target="__blank" class="btn btn-success btn-sm mt-3">Kirim Pesan</a>
                                     </div>
                                     <div class="col-md-6 mt-2">
                                         <div class="form-group">
@@ -45,7 +47,7 @@
                                             <hr>
                                             <label for="nama_anak">CV</label>
                                             <hr>
-                                            <iframe src="{{ asset('storage/register-guru/cv/Cv_storagea_20240317143751.pdf') }}" rel="noopener noreferrer nofollow"  width="100%" height="1000"></iframe>
+                                            <iframe src="{{ asset('storage/register-guru/cv/'. $guru->cv) }}" rel="noopener noreferrer nofollow"  width="100%" height="1000"></iframe>
                                         </div>
                                     </div>
                                     <div class="col-md-12 mt-5">

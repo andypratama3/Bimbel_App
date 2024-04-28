@@ -12,8 +12,9 @@ class GradeGuruController extends Controller
 {
     public function index()
     {
-        $no = 0;
-        $grades = GradeGuru::with('guru')->get();
+        $limit = 15;
+        $grades = GradeGuru::with('guru')->paginate($limit);
+        $no = $limit * ($grades->currentPage() - 1);
         $grades_by_guru = $grades->groupBy('guru_id')->map(function ($grades) {
             return $grades->count('siswa_id');
         });
