@@ -47,7 +47,7 @@
                                             <hr>
                                             <label for="nama_anak">CV</label>
                                             <hr>
-                                            <iframe src="{{ asset('storage/register-guru/cv/'. $guru->cv) }}" rel="noopener noreferrer nofollow"  width="100%" height="1000"></iframe>
+                                            <iframe src="{{ asset('storage/register-guru/cv/'. $guru->cv) }}" rel="noopener noreferrer nofollow" width="100%" height="1000"></iframe>
                                         </div>
                                     </div>
                                     <div class="col-md-12 mt-5">

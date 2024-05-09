@@ -39,8 +39,15 @@
                         <div class="col-md-12 mt-2 form-field">
                             <div class="form-group">
                                 <label for="">Jenjang <code>*</code></label>
-                                <input type="text" class="form-control" name="jenjang" value="{{ old('jenjang') }}"
-                                    placeholder="contoh : 822263674827">
+
+                                    <select name="jenjang" id="" class="form-control">
+                                        <option selected disabled>Pilih Jenjang</option>
+                                        <option value="Belum Sekolah" @if (old('jenjang_sekolah') == "Belum Sekolah") {{ 'selected' }} @endif>Belum Sekolah</option>
+                                        <option value="Paud" @if (old('jenjang_sekolah') == "Paud") {{ 'selected' }} @endif>Paud</option>
+                                        <option value="SD/MI" @if (old('jenjang_sekolah') == "SD/MI") {{ 'selected' }} @endif>SD/MI</option>
+                                        <option value="SMP/MTS" @if (old('jenjang_sekolah') == "SMP/MTS") {{ 'selected' }} @endif>SMP/MTS</option>
+                                        <option value="SMA/MAN/SMK" @if (old('jenjang_sekolah') == "SMA/MAN/SMK") {{ 'selected' }} @endif>SMA/MAN/SMK</option>
+                                    </select>
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>

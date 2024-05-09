@@ -140,7 +140,7 @@
                                             <label for="">Nomor Telpon / WhatsApp <code>*</code></label>
                                             <div class="input-group">
                                                 <input readonly type="text" class="form-control" name="no_telp" value="{{ $bimbel->no_telp }}">
-                                                <a href="https://wa.me/{{ $bimbel->no_telp }}" class="btn btn-success"><i class="bi bi-whatsapp"></i> Kirim Pesan</a>
+                                                <a href="https://wa.me/{{ $bimbel->no_telp }}" target="__blank" class="btn btn-success"><i class="bi bi-whatsapp"></i> Kirim Pesan</a>
                                             </div>
                                         </div>
                                     </div>
