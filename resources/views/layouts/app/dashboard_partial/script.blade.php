@@ -34,5 +34,22 @@
                     }
                 });
         });
+        $('.nav-item').on('click', '.swal-logout', function () {
+            let slug = $(this).data('id');
+            swal({
+                    title: 'Anda yakin?',
+                    text: 'Data yang sudah dihapus tidak dapat dikembalikan!',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $(`#logout-form`).submit();
+                    } else {
+                        // Do Nothing
+                    }
+                });
+        });
     });
 </script>

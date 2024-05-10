@@ -44,7 +44,7 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/register-guru-status',[RegisterGuruController::class, 'status'])->name('register.guru.status');
 });
 
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::get('/',DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'datamaster'], function () {
@@ -68,3 +68,7 @@ Route::group(['prefix' => 'dashboard'], function () {
 //         return view('dashboard');
 //     })->name('dashboard');
 // });
+
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
