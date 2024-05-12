@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
         $userData = [
             'id' => Str::uuid(),
             'name' => 'Admin',
-            'email' => 'admin@localhost',
+            'email' => 'admin@localhost.com',
             'password' => bcrypt('admin1211'),
             'role' => 1,
             'slug' => 'admin-'.Str::random(10),
