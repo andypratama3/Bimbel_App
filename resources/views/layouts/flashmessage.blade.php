@@ -1,8 +1,7 @@
 
 @if (count($errors) > 0)
 <div class="alert alert-danger alert-dismissible animation">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+    <h5><i class="bi bi-ban"></i> Alert!</h5>
     @foreach ($errors->all() as $error)
     <li>{{ $error }}</li>
     @endforeach
