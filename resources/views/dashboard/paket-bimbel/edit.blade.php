@@ -11,13 +11,13 @@
                     @method('PUT')
                     <div class="row">
                         <div class="col-md-12 mt-2">
-                            <div class="form-group">
+                            <div class="form-group"> 
                                 <label for="name">Nama Paket <code>*</code></label>
                                 <input type="text"
                                     class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
                                     name="name" value="{{ $paket->name }}">
                                 @error('name')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                   <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>
@@ -28,7 +28,7 @@
                                     class="form-control {{ $errors->has('foto') ? 'is-invalid' : '' }}"
                                     name="foto" value="{{ $paket->foto }}">
                                 @error('foto')
-                                <div class="invalid-feedback">{{ $message }}</div>
+                                    <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
                         </div>

@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
               <h5 class="card-title text-center">Tambah Guru</h5>
-
+               @include('layouts.flashmessage')
               <!-- General Form Elements -->
               <form action="{{ route('dashboard.datamaster.guru.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -45,7 +45,7 @@
                 <div class="row mb-3">
                   <label for="" class="col-sm-2 col-form-label">Foto <code>*</code></label>
                   <div class="col-sm-10">
-                    <input type="file" class="form-control" name="foto" value="{{ old('foto') }}">
+                    <input type="file" class="form-control" name="foto" value="{{ old('foto') }}" accept="image/*">
                   </div>
                 </div>
 

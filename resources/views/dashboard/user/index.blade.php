@@ -28,6 +28,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Email</th>
                                 <th scope="col">Name</th>
+                                <th scope="col">Role</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -37,8 +38,11 @@
                                     <td>{{ ++$no }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->name }}</td>
+                                    <td>{{ $user->role == 1 ? 'Admin' : 'Guru' }}</td>
                                     <td>
-                                        <a href="{{ route('dashboard.user.show', $user->slug) }}" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>
+                                        <a href="{{ route('dashboard.user.show', $user->slug) }}" class="btn btn-secondary btn-sm"><i class="bi bi-eye"></i></a>
+                                        <a href="{{ route('dashboard.user.edit', $user->slug) }}" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>
+
                                         <a href="#" data-id="{{ $user->slug }}" class="btn btn-danger btn-sm delete"
                                             title="Hapus">
                                             <form action="{{ route('dashboard.user.destroy', $user->slug) }}"

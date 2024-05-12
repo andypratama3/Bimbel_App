@@ -24,6 +24,14 @@
                             <label class="label" for="">Bergabung Pada</label>
                             <input type="text" class="form-control" value="{{ $user->created_at->format('d:m:Y') }}" readonly>
                         </div>
+                        <div class="col-md-6 mt-2">
+                            <label for="">Role </label>
+                            <select name="role" id="role" class="form-control">
+                                <option value="{{ $user->role }}">{{ $user->role == 1 ? 'Admin' : 'Guru' }}</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Guru</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

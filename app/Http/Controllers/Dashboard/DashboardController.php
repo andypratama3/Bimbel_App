@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Bimbel;
 class DashboardController extends Controller
 {
     public function __invoke()
     {
-        return view('dashboard.index');
+        $count_pendaftar = Bimbel::where('status', 0)->count();
+        $count_murid = Bimbel::where('status', 1)->count();
+        // dd($count_murid);
+        return view('dashboard.index', compact('count_pendaftar', 'count_murid'));
     }
 }

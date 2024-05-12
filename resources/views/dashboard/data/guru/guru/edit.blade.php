@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
               <h5 class="card-title text-center">Edit Guru</h5>
-
+                @include('layouts.flashmessage')
               <!-- General Form Elements -->
               <form action="{{ route('dashboard.datamaster.guru.update', $guru->slug) }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -51,11 +51,14 @@
                 <div class="row mb-3">
                   <label for="" class="col-sm-2 col-form-label">Foto <code>*</code></label>
                   <div class="col-sm-10">
-                    <input type="file" class="form-control" name="foto" value="{{ old('foto') }}">
+                    <input type="file" class="form-control" name="foto" value="{{ $guru->foto }}">
                   </div>
-
                 </div>
 
+                <div class="col-md-12 mb-3">
+                    <label for="" class="text-center">Priview</label>
+                    <img src="{{ asset('storage/guru/img/'. $guru->foto) }}" alt="" style="width: 100%">
+                </div>
                 <div class="row mb-3">
                   <div class="col-sm-12">
                     <a href="{{ route('dashboard.datamaster.guru.index') }}" class="btn btn-danger">Kembali</a>

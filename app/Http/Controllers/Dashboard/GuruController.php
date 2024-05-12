@@ -29,11 +29,11 @@ class GuruController extends Controller
             'mata_pelajaran' => 'required',
             // user register
             'email' => 'required',
-            'foto' => 'required',
+            'foto' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
-        $profile = $request->foto;
-        if($profile){
-            $foto = $profile;
+
+        if($request->foto){
+            $foto = $request->foto;
             $ext = $foto->getClientOriginalExtension();
             //path
             $upload_path = public_path('storage/guru/img/');
@@ -54,7 +54,7 @@ class GuruController extends Controller
         $guru->mata_pelajaran = $request->mata_pelajaran;
         $guru->status = '2';
         $guru->paket = '1';
-        $user->foto = $picture_name;
+        $guru->foto = $picture_name;
         $guru->user_id = $user->id;
         $guru->save();
         return redirect()->route('dashboard.datamaster.guru.index')->with('success','Berhasil Menambah Guru');
@@ -63,6 +63,7 @@ class GuruController extends Controller
     public function edit($slug)
     {
         $guru = Guru::where('slug', $slug)->firstOrFail();
+
         return view('dashboard.data.guru.guru.edit', compact('guru'));
     }
     public function update(Request $request, $slug)
@@ -74,17 +75,18 @@ class GuruController extends Controller
             'mata_pelajaran' => 'required',
             // user register
             'email' => 'required',
-            'foto' => 'required',
         ]);
-        $profile = $request->foto;
-        if($profile){
-            $foto = $profile;
+        if($request->foto){
+            $foto = $request->foto;
             $ext = $foto->getClientOriginalExtension();
             //path
             $upload_path = public_path('storage/guru/img/');
             $picture_name = 'Guru_'.Str::slug($request->name).'_'.date('YmdHis').".$ext";
             $foto->move($upload_path, $picture_name);
+        }else{
+            $picture_name = $guru->foto;
         }
+
 
         $user = User::where('id', $guru->user_id)->firstOrFail();
 

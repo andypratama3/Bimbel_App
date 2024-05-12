@@ -13,6 +13,7 @@ use App\Http\Controllers\Dashboard\PaketBimbelController as DashboardPaketBimbel
 use App\Http\Controllers\Dashboard\SiswaBimbelController as DashboardSiswaBimbelController;
 use App\Http\Controllers\Dashboard\PendaftarGuruController as DashboardPendaftarGuruController;
 use App\Http\Controllers\Dashboard\UserController as DashboardUserController;
+use App\Http\Controllers\Dashboard\ProfileController as DashboardProfileController;
 
 
 /*
@@ -56,6 +57,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
     Route::resource('paket-bimbel', DashboardPaketBimbelController::class, ['names' => 'dashboard.paket.bimbel']);
     Route::resource('grade-guru', DashboardGradeGuruController::class, ['names' => 'dashboard.grade.guru']);
     Route::resource('users', DashboardUserController::class, ['names' => 'dashboard.user']);
+    Route::resource('profile', DashboardProfileController::class, ['names' => 'dashboard.profile']);
 
 });
 
