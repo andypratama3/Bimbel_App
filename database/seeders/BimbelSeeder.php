@@ -42,7 +42,7 @@ class BimbelSeeder extends Seeder
                 'catatan_anak_didik' => $faker->sentence(),
                 'catatan_guru_les' => $faker->sentence(),
                 'informasi_bimbel' => $faker->randomElement(['Rekomendasi dari Teman/Kerabat/Tetangga', 'Facebook', 'Instagram', 'Telegram', 'Grup WhatsApp']),
-                'status' => '0',
+                'status' => 2,
                 'image_pembayaran' => $faker->imageUrl(),
                 'slug' => Str::slug($faker->sentence),
                 'created_at' => now(),

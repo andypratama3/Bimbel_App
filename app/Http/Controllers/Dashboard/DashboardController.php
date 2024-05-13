@@ -10,8 +10,8 @@ class DashboardController extends Controller
     public function __invoke()
     {
         $count_pendaftar = Bimbel::where('status', 0)->count();
-        $count_murid = Bimbel::where('status', 1)->count();
-        // dd($count_murid);
+        $count_murid = Bimbel::where('status', 2)->count();
+        
         return view('dashboard.index', compact('count_pendaftar', 'count_murid'));
     }
 }

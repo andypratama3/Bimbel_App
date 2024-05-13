@@ -1,5 +1,12 @@
 @extends('layouts.app.user')
-@section('title', 'Home')
+@section('title', 'Dashboard')
+@push('css')
+    <style>
+        #star-active {
+            color: yellow !important;
+        }
+    </style>
+@endpush
 @section('content')
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
@@ -12,7 +19,7 @@
                     <a href="{{ route('register.bimbel') }}" class="btn-get-started"><i class="bi bi-book"></i> Daftar
                         Bimbel</a>
                     <a href="{{ route('register.guru') }}" class="btn-get-started"
-                        style="background: rgb(245, 245, 41); color: black;"><i class="bi bi-user"
+                        style=  "background: rgb(245, 245, 41); color: black;"><i class="bi bi-user"
                             style="-color: black;"></i> Daftar Guru</a>
                 </div>
             </div>
@@ -142,20 +149,49 @@
 
         <div class="row">
             @foreach ($gurus as $guru)
-            @if(optional($guru->user)->profile_photo_path)
-            <div class="col-lg-4 col-md-7 d-flex align-items-stretch">
-                <div class="member">
-                    <div class="member-img">
-                        <img src="{{ asset('storage/guru/img/'. $guru->user->profile_photo_path)}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="member-info">
-                        <h4>{{ $guru->name }}</h4>
-                        <span>{{ $guru->mata_pelajaran }}</span>
+                @if(optional($guru->user)->profile_photo_path)
+                <div class="col-lg-4 col-md-7 d-flex align-items-stretch">
+                    <div class="member">
+                        <div class="member-img">
+                            <img src="{{ asset('storage/guru/img/'. $guru->user->profile_photo_path)}}" class="img-fluid" alt="">
+                        </div>
+                        <div class="member-info">
+                            <h4>{{ $guru->name }}</h4>
+                            <span>{{ $guru->mata_pelajaran }}</span>
+                            <div class="form-group">
+                            @php
+                                $averageGrade = $guru->grade->count('guru_id');
+                                $starRating = round($averageGrade / 5 * 5);
+                            @endphp
+                            @if($starRating >= 4.5)
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                            @elseif ($starRating >= 3.5)
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                            @elseif ($starRating >= 2.5)
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                            @elseif ($starRating >= 1.5)
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                            @else
+                                <i class="bi bi-star-fill" id="star-active"></i>
+                            @endif
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            @else
-            @endif
+                @else
+
+                @endif
             @endforeach
 
 
