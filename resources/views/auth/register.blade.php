@@ -58,7 +58,7 @@
                       <input type="text" name="name" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Please, enter your name!</div>
                     </div>
-                    
+
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
                       <input type="email" name="email" class="form-control" id="yourEmail" required>
@@ -68,7 +68,7 @@
                     <div class="col-12">
                       <label for="password" class="form-label">Password</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="password" class="form-control" id="password" required>
+                        <input type="password" name="password" class="form-control" id="password" required>
                         <div class="invalid-feedback">Please choose a username.</div>
                       </div>
                     </div>

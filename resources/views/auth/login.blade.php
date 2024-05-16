@@ -51,12 +51,14 @@
                     <h5 class="card-title text-center pb-0 fs-4">Login</h5>
                   </div>
                   @include('layouts.flashmessage')
-                  <form action="{{ route('login') }}" method="POST" class="row g-3 needs-validation">
+                  <form action="{{ route('login') }}" method="POST" class="row g-3">
                     @csrf
                     <div class="col-12">
                       <label for="email" class="form-label">Email</label>
-                      <input type="text" name="email" class="form-control" id="email">
-                      <div class="invalid-feedback">Please, enter Email!</div>
+                      <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email">
+                      @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror
                     </div>
 
                     <div class="col-12">
@@ -68,7 +70,6 @@
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
                   </form>
-
                 </div>
               </div>
 
