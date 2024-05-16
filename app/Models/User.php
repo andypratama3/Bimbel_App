@@ -9,7 +9,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
+use App\Http\Traits\UsesUuid;
+use App\Http\Traits\NameHasSlug;
 class User extends Authenticatable
 {
     use HasApiTokens;
@@ -27,6 +28,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'slug',
     ];
 
     /**
