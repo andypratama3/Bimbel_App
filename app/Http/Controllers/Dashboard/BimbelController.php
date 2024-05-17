@@ -35,6 +35,7 @@ class BimbelController extends Controller
                 'status' => 'required',
         ]);
         $bimbel->status = $request->status;
+        // condition for update jadwal  
         $bimbel->update();
         return redirect()->route('dashboard.datamaster.pendaftar.bimbel.index')->with('success','Berhasil Update Data');
 

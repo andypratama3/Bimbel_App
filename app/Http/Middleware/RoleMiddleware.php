@@ -15,10 +15,12 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next, ...$roles)
     {
+
         if(in_array($request->user()->role, $roles)){
             return $next($request);
         }else{
             return redirect('/')->with('failed', 'You are not Admin!');
         }
+
     }
 }

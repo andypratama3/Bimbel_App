@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('moduls', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
-            $table->string('role')->default('1');
+            $table->foreignUuid('bimbel_id')->nullable()->references('id')->on('bimbels')->onDelete('cascade');
+            $table->foreignUuid('guru_id')->nullable()->references('id')->on('gurus')->onDelete('cascade');
+            $table->string('status')->default(1);
             $table->string('slug');
             $table->timestamps();
         });
@@ -31,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('moduls');
     }
 };

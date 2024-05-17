@@ -59,6 +59,13 @@
           <span>User</span>
         </a>
       </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.modul.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.modul.index') }}">
+            <i class="bi bi-book"></i>
+          <span>Permintaan Modul</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
 {{--
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">

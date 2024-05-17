@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Dashboard\ModulController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\RegisterGuruController;
 use App\Http\Controllers\Dashboard\GuruController;
@@ -45,7 +46,7 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/register-guru-status',[RegisterGuruController::class, 'status'])->name('register.guru.status');
 });
 
-Route::group(['prefix' => 'dashboard',  'middleware' => ['auth','role: 1']], function () {
+Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role: 1']], function () {
     Route::get('/',DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'datamaster'], function () {
@@ -58,6 +59,9 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth','role: 1']], fun
     Route::resource('grade-guru', DashboardGradeGuruController::class, ['names' => 'dashboard.grade.guru']);
     Route::resource('users', DashboardUserController::class, ['names' => 'dashboard.user']);
     Route::resource('profile', DashboardProfileController::class, ['names' => 'dashboard.profile']);
+
+    //guru Route
+    Route::resource('modul', ModulController::class, ['names' => 'dashboard.modul']);
 
 });
 
