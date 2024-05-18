@@ -6,6 +6,7 @@
         <span>Dashboard</span>
       </a>
     </li><!-- End Dashboard Nav -->
+    @if(Auth::user()->role == 1)
 
     <li class="nav-item">
       <a class="nav-link {{ Request::routeIs('dashboard.datamaster.*') ? '' : 'collapsed' }}" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
@@ -59,7 +60,7 @@
           <span>User</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
+      @else
       <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.modul.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.modul.index') }}">
             <i class="bi bi-book"></i>
@@ -85,6 +86,8 @@
           <span>Absensi</span>
         </a>
       </li>
+      @endif
+
 {{--
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
