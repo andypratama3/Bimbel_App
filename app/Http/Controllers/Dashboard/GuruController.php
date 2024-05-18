@@ -46,6 +46,7 @@ class GuruController extends Controller
         $user->email = $request->email;
         $user->profile_photo_path = $picture_name;
         $user->password = bcrypt('guru-bimbel123');
+        $user->role = 2;
         $user->save();
 
         $guru = new Guru();

@@ -3,22 +3,23 @@
 namespace App\Models;
 
 use App\Http\Traits\UsesUuid;
-use App\Http\Traits\NameHasSlug;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Modul extends Model
+class Absensi extends Model
 {
-    use HasFactory, UsesUuid, NameHasSlug;
+    use HasFactory, UsesUuid;
 
-    protected $table = 'moduls';
+    protected $table = 'absensis';
 
     protected $fillable = [
-        'name',
+        'tanggal_mulai',
+        'tanggal_selesai',
         'bimbel_id',
         'guru_id',
-        'status',
-        'slug',
+        'sesi',
+        'foto_absen',
     ];
 
 

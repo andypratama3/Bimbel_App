@@ -66,6 +66,25 @@
           <span>Permintaan Modul</span>
         </a>
       </li><!-- End Profile Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.deskripsi.anak.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.deskripsi.anak.index') }}">
+            <i class="bi bi-book"></i>
+          <span>Deskripsi Anak</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.dokumentasi.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.dokumentasi.index') }}">
+            <i class="bi bi-upload"></i>
+          <span>Dokumentasi Les</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.absensi.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.absensi.index') }}">
+            <i class="bi bi-newspaper"></i>
+          <span>Absensi</span>
+        </a>
+      </li>
 {{--
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">

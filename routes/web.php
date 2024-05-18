@@ -7,6 +7,9 @@ use App\Http\Controllers\RegisterGuruController;
 use App\Http\Controllers\Dashboard\GuruController;
 use App\Http\Controllers\RegisterBimbelController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DeskripsiAnakController;
+use App\Http\Controllers\Dashboard\AbsensiController;
+use App\Http\Controllers\Dashboard\DokumentasiController;
 use App\Http\Controllers\Dashboard\GuruController as DashboardGuruController;
 use App\Http\Controllers\Dashboard\BimbelController as DashboardBimbelController;
 use App\Http\Controllers\Dashboard\GradeGuruController as DashboardGradeGuruController;
@@ -46,7 +49,7 @@ Route::group(['prefix' => '/'], function () {
     Route::get('/register-guru-status',[RegisterGuruController::class, 'status'])->name('register.guru.status');
 });
 
-Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role: 1']], function () {
+Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role:1,2']], function () {
     Route::get('/',DashboardController::class)->name('dashboard');
 
     Route::group(['prefix' => 'datamaster'], function () {
@@ -62,6 +65,14 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role: 1']], fu
 
     //guru Route
     Route::resource('modul', ModulController::class, ['names' => 'dashboard.modul']);
+    //modul change status
+    Route::post('/moduls/status/{id}',[ModulController::class, 'updateStatus'])->name('modul.change.status');
+    //deksripsi Anak
+    Route::resource('deskripsi-anak', DeskripsiAnakController::class, ['names' => 'dashboard.deskripsi.anak']);
+
+
+    Route::resource('absensis', AbsensiController::class, ['names' => 'dashboard.absensi']);
+    Route::resource('dokumentasis', DokumentasiController::class, ['names' => 'dashboard.dokumentasi']);
 
 });
 

@@ -51,14 +51,19 @@ class ModulController extends Controller
 
         $murids = Bimbel::orderBy('created_at')->where('status', '2')->get();
         $modul = Modul::where('slug', $slug)->firstOrFail();
-        return view('dashboard.modul.edit', compact('murids','murids'));
+        return view('dashboard.modul.edit', compact('murids','modul'));
     }
 
     public function update(Request $request, $slug)
     {
+        $request->validate([
+            'name' => 'required',
+            'bimbel_id' => 'required',
+        ]);
         $modul = Modul::where('slug', $slug)->firstOrFail();
+        $modul->name = $request->name;
+        $modul->bimbel_id = $request->bimbel_id;
 
-        $modul->status = $request->status;
         $modul->update();
 
         return redirect()->route('dashboard.modul.index')->with('success', 'Berhasil Mengedit Data');
@@ -68,5 +73,13 @@ class ModulController extends Controller
     {
         $modul->delete();
         return redirect()->route('dashboard.modul.index')->with('success', 'Berhasil Menghapus Data');
+    }
+
+    public function updateStatus($id)
+    {
+        $modul = Modul::find($id);
+        $modul->status = $modul->status == 1 ? 2 : 1;
+        $modul->update();
+        return redirect()->back()->with('success', 'Berhasil Mengubah Status Modul');
     }
 }

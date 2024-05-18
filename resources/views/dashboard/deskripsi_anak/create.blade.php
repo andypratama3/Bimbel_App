@@ -1,5 +1,5 @@
 @extends('layouts.app.dashboard')
-@section('title','Tambah Modul')
+@section('title','Tambah Deskripsi')
 
 @push('css_dashboard')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -9,21 +9,10 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title text-center">Tambah Modul</h5>
-                <form action="{{ route('dashboard.modul.store') }}" method="POST" enctype="multipart/form-data">
+                <h5 class="card-title text-center">Tambah Deskripsi</h5>
+                <form action="{{ route('dashboard.deskripsi.anak.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-md-12 mt-2">
-                            <div class="form-group">
-                                <label for="name">Nama  <code>*</code></label>
-                                <input type="text"
-                                    class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
-                                    name="name" value="{{ old('name') }}">
-                                @error('name')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
                         <div class="col-md-12 mt-2">
                             <label for="">Murid Bimbel</label>
                             <select name="bimbel_id" class="form-control select2">
@@ -33,9 +22,17 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="col-md-12 mt-2">
+                            <label for="">Sesi</label>
+                            <input type="number" class="form-control" name="sesi" value="{{ old('sesi') }}">
+                        </div>
+                        <div class="col-md-12 mt-2">
+                            <label for="">Deskripsi Perkembangan Anak</label>
+                            <textarea name="description" class="form-control" id="" cols="30" rows="10"></textarea>
+                        </div>
                     </div>
                     <div class="col-md-12 mt-5">
-                        <a href="{{ route('dashboard.modul.index') }}" class="btn btn-danger">Kembali</a>
+                        <a href="{{ route('dashboard.deskripsi.anak.index') }}" class="btn btn-danger">Kembali</a>
                         <button type="submit" class="btn btn-primary float-end">Submit</button>
                     </div>
                 </form>

@@ -156,8 +156,8 @@
 
       <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
         <li class="dropdown-header">
-          {{-- <h6>{{ Auth::user()->name }}</h6>
-          <span>{{ Auth::user()->role == 1 ? 'Admin' : 'User' }}</span> --}}
+          <h6>{{ Auth::user()->name }}</h6>
+          <span>{{ Auth::user()->role == 1 ? 'Admin' : 'Guru' }}</span>
         </li>
         <li>
           <hr class="dropdown-divider">

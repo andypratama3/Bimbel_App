@@ -7,17 +7,18 @@ use App\Http\Traits\NameHasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Modul extends Model
+class DeskripsiAnak extends Model
 {
     use HasFactory, UsesUuid, NameHasSlug;
 
-    protected $table = 'moduls';
+    protected $table = 'deskripsi_anaks';
 
     protected $fillable = [
         'name',
         'bimbel_id',
         'guru_id',
-        'status',
+        'description',
+        'sesi',
         'slug',
     ];
 
