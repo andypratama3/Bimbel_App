@@ -45,6 +45,10 @@ class FortifyServiceProvider extends ServiceProvider
             }
         });
 
+
+        // Fortify::updateUserProfileInformationUsing(function () {
+        //     return view('profile.update-profile-information-form');
+        // });
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);

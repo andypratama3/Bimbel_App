@@ -22,5 +22,5 @@ class RoleMiddleware
             return redirect('/')->with('failed', 'You are not Admin!');
         }
 
-    }
+    }   
 }

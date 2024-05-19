@@ -84,7 +84,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role:1,2']], f
 //     'verified',
 // ])->group(function () {
 //     Route::get('/dashboard', function () {
-//         return view('dashboard');
+//         return view('home');
 //     })->name('dashboard');
 // });
 
