@@ -73,6 +73,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role:1,2']], f
 
     Route::resource('absensis', AbsensiController::class, ['names' => 'dashboard.absensi']);
     Route::resource('dokumentasis', DokumentasiController::class, ['names' => 'dashboard.dokumentasi']);
+    Route::get('/siswas-bimbel-export',[DashboardSiswaBimbelController::class, 'exportExcel'])->name('dashboard.datamaster.siswa.bimbel.export');
+
 
 });
 

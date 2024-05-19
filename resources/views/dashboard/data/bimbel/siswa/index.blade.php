@@ -9,15 +9,23 @@
         }
     </style>
 @endpush
-@section('title','Registrasi Bimbel')
+@section('title','Siswa Bimbel')
 @section('content')
 
 <div class="col-md-12" id="">
     <div class="row">
-        <div class="card" id="card">
-            <h5 class="card-title text-center">Data Siswa Bimbel <a href="{{ route('dashboard.datamaster.siswa.bimbel.create') }}" class="btn btn-primary float-end">Tambah</a></h5>
+        <div class="col-md-12">
+                <div class="form-group">
+
+                    <a href="{{ route('dashboard.datamaster.siswa.bimbel.export') }}" class="btn btn-success btn-sm"><i class="bi bi-file-excel-fill"></i> Export Excel </a>
+                    <a href="{{ route('dashboard.datamaster.siswa.bimbel.create') }}" class="btn btn-primary btn-sm float-end"><bi class="bi bi-plus"></bi> Tambah </a>
+                </div>
+        </div>
+        <div class="card mt-2" id="card">
+            <h5 class="card-title text-center mb-3">Data Siswa Bimbel</h5>
             <div class="card-body">
-              <table class="table table-responsive table-hover text-center fon">
+
+              <table class="table table-responsive table-hover text-center">
                 <thead>
                   <tr>
                     <th scope="col">No</th>

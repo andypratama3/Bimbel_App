@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Bimbel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Exports\BimbelExport;
+use Maatwebsite\Excel\Facades\Excel;
 class SiswaBimbelController extends Controller
 {
     public function index()
@@ -110,7 +111,7 @@ class SiswaBimbelController extends Controller
         $bimbel->catatan_guru_les = $request->catatan_guru_les;
         $bimbel->informasi_bimbel = $request->informasi_bimbel;
         $bimbel->status = 2;
-        
+
         $bimbel->update();
         return redirect()->route('dashboard.datamaster.siswa.bimbel.index')->with('success','Berhasil Update Data');
 
@@ -120,5 +121,10 @@ class SiswaBimbelController extends Controller
         $bimbel = Bimbel::where('slug', $slug)->firstOrFail();
         $bimbel->delete();
         return redirect()->route('dashboard.datamaster.siswa.bimbel.index')->with('success','Berhasil Menghapus Data');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new BimbelExport, 'bimbel.xlsx');
     }
 }
