@@ -39,9 +39,8 @@ class GradeGuruController extends Controller
     }
     public function create()
     {
-        $bimbels = Bimbel::where('status', '2')->orderBy('nama_anak')->get();
         $gurus = Guru::where('status', '2')->orderBy('name')->get();
-        return view('dashboard.grade-guru.create', compact('bimbels', 'gurus'));
+        return view('dashboard.grade-guru.create', compact('gurus'));
     }
     public function store(Request $request)
     {

@@ -68,7 +68,10 @@
                     </div>
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
+                      <a href="{{ route('register') }}" class="btn btn-danger w-100 mt-2" type="submit">Register</a>
+
                     </div>
+
                   </form>
                 </div>
               </div>

@@ -21,7 +21,7 @@
   <!-- Vendor CSS Files -->
   <link href="{{ asset('assets_dashboard/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets_dashboard/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets_dashboard/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">>
+  <link href="{{ asset('assets_dashboard/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets_dashboard/css/style.css') }}" rel="stylesheet">
@@ -35,7 +35,7 @@
       <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+            <di class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
@@ -50,6 +50,7 @@
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Buat Akun</h5>
                   </div>
+                  @include('layouts.flashmessage')
 
                   <form action="{{ route('register') }}" method="POST" class="row g-3 needs-validation" novalidate>
                     @csrf
@@ -75,7 +76,7 @@
 
                     <div class="col-12">
                       <label for="konfirmasi_password" class="form-label">Konfirmasi Password</label>
-                      <input type="password" name="password_confirm" class="form-control" id="konfirmasi_password" required>
+                      <input type="password" name="password_confirmation" class="form-control" id="konfirmasi_password" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
@@ -83,19 +84,11 @@
                       <button class="btn btn-primary w-100" type="submit">Create Account</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
+                      <p class="small mb-0">Sudah Memiliki Akun? <a href="{{ route('login') }}">Log in</a></p>
                     </div>
                   </form>
 
                 </div>
-              </div>
-
-              <div class="credits">
-                <!-- All the links in the footer should remain intact. -->
-                <!-- You can delete the links only if you purchased the pro version. -->
-                <!-- Licensing information: https://bootstrapmade.com/license/ -->
-                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
               </div>
 
             </div>

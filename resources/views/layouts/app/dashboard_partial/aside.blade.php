@@ -47,20 +47,19 @@
         </a>
       </li><!-- End Profile Page Nav -->
 
-    <li class="nav-item">
-        <a class="nav-link {{ Request::routeIs('dashboard.grade.guru.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.grade.guru.index') }}">
-            <i class="bi bi-star-fill"></i>
-          <span>Grade Guru</span>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.kriteria.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.kriteria.index') }}">
+            <i class="bi bi-emoji-smile"></i>   
+          <span>Kriteria Guru</span>
         </a>
       </li><!-- End Profile Page Nav -->
-
       <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.user.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.user.index') }}">
             <i class="bi bi-people"></i>
           <span>User</span>
         </a>
       </li><!-- End Profile Page Nav -->
-      @else
+      @elseif(Auth::user()->role == 2)
       <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.modul.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.modul.index') }}">
             <i class="bi bi-book"></i>
@@ -86,6 +85,13 @@
           <span>Absensi</span>
         </a>
       </li>
+      @else
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.grade.guru.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.grade.guru.index') }}">
+            <i class="bi bi-star-fill"></i>
+          <span>Grade Guru</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
       @endif
 
 {{--

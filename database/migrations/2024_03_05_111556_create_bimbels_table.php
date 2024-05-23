@@ -36,6 +36,8 @@ return new class extends Migration
             $table->string('informasi_bimbel')->nullable();
             $table->string('status')->default('0');
             $table->string('image_pembayaran')->nullable();
+            $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
+            $table->string('alasan')->nullable();
             $table->string('slug');
             $table->timestamps();
         });

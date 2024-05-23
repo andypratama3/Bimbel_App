@@ -39,7 +39,9 @@ class Bimbel extends Model
             'nama_pembayar',
             'status',
             'image_pembayaran',
+            'alasan',
             'slug',
+            'user_id',
     ];
     // public function setNama_AnakAttribute($value)
     // {
@@ -50,4 +52,9 @@ class Bimbel extends Model
     // {
     //     return 'slug';
     // }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

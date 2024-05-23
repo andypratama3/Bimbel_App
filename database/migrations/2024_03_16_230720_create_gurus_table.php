@@ -22,7 +22,7 @@ return new class extends Migration
             //jenjang tk,sd,smp, smk,
             $table->string('jenjang')->nullable();
 
-            $table->string('paket');
+            $table->string('paket')->nullable();
             //paket reguler,islami
             $table->string('mata_pelajaran');
 

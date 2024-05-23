@@ -54,11 +54,22 @@
                         <div class="col-md-12 mt-2 form-field">
                             <div class="form-group">
                                 <label for="">Mata Pelajaran<code>*</code></label>
+                                <select name="mata_pelajaran" id="" class="form-control">
+                                    <option selected disabled>Pilih Mata Pelajaran</option>
+                                    <option value="Ipa">Ipa</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-2 form-field">
+                            <div class="form-group">
+                                <label for="">Jenjang <code>*</code></label>
                                 <input type="text" class="form-control" name="mata_pelajaran"
                                     value="{{ old('mata_pelajaran') }}" placeholder="Contoh : Ipa,Ips">
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
+
                         <div class="col-md-12 mt-2">
                             <a href="/" class="btn btn-danger">Kembali</a>
                             <button type="button" id="submit-form" class="btn btn-success float-end">Submit</button>

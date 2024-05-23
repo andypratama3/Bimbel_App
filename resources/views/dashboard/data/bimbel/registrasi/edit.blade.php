@@ -11,7 +11,7 @@
                     @method('PUT')
                     <div class="tab-content">
                         <div class="tab-pane fade show active">
-                            <div class="row">
+                            <div class="row" id="row">
                                 <h5 class="card-title text-center"><strong>Data Pendaftar</strong></h5>
                                     <div class="col-md-6 mt-2">
                                         <div class="form-group">
@@ -175,16 +175,23 @@
                                     </div>
                                     @else
                                     @endif
-                                    <div class="col-md-6 mt-2">
+                                    <div class="col-md-6 mt-2" id="alasan_field">
                                         <div class="form-group">
                                             <label for="">Konfirmasi Siswa</label>
-                                            <select name="status" class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}">
+                                            <select name="status" class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" id="status">
                                                 <option selected disabled>Pilih Konfirmasi</option>
                                                 <option value="0">Tolak</option>
                                                 <option value="1">Belum Di Terima</option>
                                                 <option value="2">Terima</option>
                                             </select>
+
                                         </div>
+                                        @error('status')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    </div>
                                         @error('status')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -201,4 +208,25 @@
         </div>
     </div>
 </div>
+
+@push('js_dashboard')
+<script>
+    $(document).ready(function() {
+        $('#status').on('change', function() {
+            if ($(this).val() == 0) {
+                $('#alasan_field').append(`
+                    <div class="col-md-12 mt-2" id="alasan_field_show">
+                        <div class="form-group">
+                            <label for="">Alasan</label>
+                            <textarea class="form-control text-area" name="alasan" id=""></textarea>
+                        </div>
+                    </div>
+                `);
+            } else {
+                $('#alasan_field_show').remove();
+            }
+        });
+    });
+</script>
+@endpush
 @endsection

@@ -19,8 +19,8 @@ class RoleMiddleware
         if(in_array($request->user()->role, $roles)){
             return $next($request);
         }else{
-            return redirect('/')->with('failed', 'You are not Admin!');
+            return redirect('/')->with('error', 'You are not Admin!');
         }
 
-    }   
+    }
 }

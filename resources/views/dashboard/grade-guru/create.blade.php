@@ -14,14 +14,12 @@
                     <div class="row">
                         <div class="col-md-12 mt-2">
                             <div class="form-group">
-                                <label for="name">Siswa<code>*</code></label>
-                                <select name="bimbel_id" id="bimbel" class="form-control select2">
-                                    <option selected disabled>Pilih Siswa</option>
-                                        @foreach ($bimbels as $bimbel)
-                                            <option value="{{ $bimbel->id }}">{{ $bimbel->nama_anak }}</option>
-                                        @endforeach
+                                <label for="name">Karakter Guru<code>*</code></label>
+                                <select name="karakter" multiple id="bimbel" class="form-control select2" data-placeholder="Pilih Karakter Guru">
+                                    <option disabled>Pilih Karakter </option>
+
                                 </select>
-                                @error('bimbel_id')
+                                @error('karakter')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>

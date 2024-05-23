@@ -32,13 +32,14 @@ class BimbelController extends Controller
     {
         $bimbel = Bimbel::where('slug', $slug)->firstOrFail();
         $request->validate([
-                'status' => 'required',
+            'status' => 'required',
         ]);
         $bimbel->status = $request->status;
-        // condition for update jadwal  
-        $bimbel->update();
+        if ($request->status == '1') {
+            $bimbel->user->update(['role' => 0]);
+        }
+        $bimbel->save();
         return redirect()->route('dashboard.datamaster.pendaftar.bimbel.index')->with('success','Berhasil Update Data');
-
     }
     public function destroy($slug)
     {

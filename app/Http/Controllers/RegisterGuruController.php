@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Guru;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class RegisterGuruController extends Controller
 {
     public function index()
@@ -36,13 +36,18 @@ class RegisterGuruController extends Controller
             $file->move($upload_path, $file_name);
        }
 
-        $guru = new Guru();
-        $guru->name = $request->name;
-        $guru->paket = '1';
-        $guru->cv = $file_name;
-        $guru->whatsapp = $request->whatsapp;
-        $guru->mata_pelajaran = $request->mata_pelajaran;
-        $guru->save();
+        if(Auth::check()){
+            $guru = new Guru();
+            $guru->name = $request->name;
+            $guru->paket = '1';
+            $guru->cv = $file_name;
+            $guru->whatsapp = $request->whatsapp;
+            $guru->mata_pelajaran = $request->mata_pelajaran;
+            $guru->user_id = Auth::id();
+            $guru->save();
+        }else{
+            return redirect()->route('login')->with('error','Login Terlebih Dahalu');
+        }
 
         return redirect()->route('register.guru.status');
     }
