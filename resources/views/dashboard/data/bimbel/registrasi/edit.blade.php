@@ -218,7 +218,7 @@
                     <div class="col-md-12 mt-2" id="alasan_field_show">
                         <div class="form-group">
                             <label for="">Alasan</label>
-                            <textarea class="form-control text-area" name="alasan" id=""></textarea>
+                            <textarea class="form-control text-area" name="alasan" id="" placholder="Silahkan Masukan Alasan Tidak Di Terima"></textarea>
                         </div>
                     </div>
                 `);

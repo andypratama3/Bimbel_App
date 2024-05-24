@@ -38,6 +38,10 @@ class BimbelController extends Controller
         if ($request->status == '1') {
             $bimbel->user->update(['role' => 0]);
         }
+
+        if($request->alasan != null){
+            $bimbel->alasan = $request->alasan;
+        }
         $bimbel->save();
         return redirect()->route('dashboard.datamaster.pendaftar.bimbel.index')->with('success','Berhasil Update Data');
     }
