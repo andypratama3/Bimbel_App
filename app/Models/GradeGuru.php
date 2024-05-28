@@ -25,5 +25,9 @@ class GradeGuru extends Model
     {
         return $this->belongsTo(Guru::class, 'guru_id', 'id');
     }
+    public function kriteria()
+    {
+        return $this->belongsTo(Kriteria::class, 'kriteria_id', 'id');
+    }
 
 }

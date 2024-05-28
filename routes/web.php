@@ -81,6 +81,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role:0,1,2']],
 
 
     Route::get('/grades/guru/karakter/',[DashboardGradeGuruController::class, 'gradeKrakter'])->name('dashboard.grade.guru.karakter');
+    Route::get('/grades/guru/karakter/show/{id}',[DashboardGradeGuruController::class, 'gradeKrakterShow'])->name('dashboard.grade.guru.karakter.show');
+
     Route::get('/grades/guru/',[DashboardGradeGuruController::class, 'grade'])->name('dashboard.grade.guru.rating');
 
 

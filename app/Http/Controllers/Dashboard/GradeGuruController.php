@@ -129,6 +129,40 @@ class GradeGuruController extends Controller
         return view('dashboard.grade-guru.grade-karakter', compact('no', 'grades', 'starRatings_by_karakter', 'grades_by_guru'));
     }
 
+    public function gradeKrakterShow($id)
+{
+    $limit = 20;
+
+    // Retrieve the guru by ID
+    $guru = Guru::findOrFail($id);
+
+    // Retrieve grades for the specified guru with criteria eager loaded
+    $grades = GradeGuru::with(['bimbel', 'kriteria'])
+                        ->where('guru_id', $id)
+                        ->paginate($limit);
+
+    // Initialize an empty array to store grades grouped by criteria
+    $grades_by_kriteria = [];
+
+    // Group grades by criteria
+    foreach ($grades as $grade) {
+        $criteria_name = $grade->kriteria->name;
+
+        // If the criteria is not already added to the array, add it
+        if (!isset($grades_by_kriteria[$criteria_name])) {
+            $grades_by_kriteria[$criteria_name] = [];
+        }
+
+        // Add the grade to the criteria's array
+        $grades_by_kriteria[$criteria_name][] = $grade;
+    }
+
+    // You can optionally calculate $no here if needed
+
+    $no = $limit * ($grades->currentPage() - 1);
+    return view('dashboard.grade-guru.show-karakter', compact('grades','grades_by_kriteria', 'guru', 'no'));
+}
+
 
     public function grade()
     {

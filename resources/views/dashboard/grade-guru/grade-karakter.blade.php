@@ -53,7 +53,7 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('dashboard.grade.guru.show', $guruId) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></a>
+                                        <a href="{{ route('dashboard.grade.guru.karakter.show', $guruId) }}" class="btn btn-warning btn-sm"><i class="bi bi-eye"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
