@@ -14,6 +14,7 @@ class GradeGuru extends Model
         'bimbel_id',
         'guru_id',
         'kriteria_id',
+        'jenjang'
     ];
 
     public function bimbel()

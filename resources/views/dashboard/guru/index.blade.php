@@ -49,6 +49,14 @@
                                         <p>Hari Les    : <strong>{{ $guru->jadwal_hari }}</strong></p>
                                     </div>
                                 </div>
+                                {{-- <div class="col-md-6">
+                                    <div class="form-group">
+                                        <p>Karakter Guru    :
+                                            {{ $guru_krakter->name }}
+
+                                        </p>
+                                    </div>
+                                </div> --}}
                             </div>
                             @empty
                                 <div class="container">

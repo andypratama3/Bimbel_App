@@ -8,11 +8,12 @@
     <div class="row">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title text-center">Tambah Grade</h5>
+                <h5 class="card-title text-center">Beri Grade</h5>
                 <form action="{{ route('dashboard.grade.guru.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-12 mt-2">
+                            <p><code>*</code>Guru yang Tampil Berdasarkan Jenjang Siswa Bimbel</p>
                             <div class="form-group">
                                 <label for="name">Karakter Guru<code>*</code></label>
                                 <select name="kriteria_id" multiple id="kriteria" class="form-control select2" data-placeholder="Pilih Karakter Guru">
@@ -43,7 +44,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mt-5">
-                        <a href="{{ route('dashboard.grade.guru.index') }}" class="btn btn-danger">Kembali</a>
+                        <a href="{{ route('dashboard.grade.guru.rating') }}" class="btn btn-danger">Kembali</a>
                         <button type="submit" class="btn btn-primary float-end">Submit</button>
                     </div>
                 </form>

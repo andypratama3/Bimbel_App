@@ -15,12 +15,14 @@
                                 <thead>
                                     <tr>
                                         <td>Kategori</td>
-                                        <td>Action</td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><a href="{{ route('dashboard.grade.guru.create') }}" class="btn btn-primary">Rating Guru</a></td>
+                                        <td><a href="{{ route('dashboard.grade.guru.rating') }}" class="btn btn-primary">Rating Guru</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="{{ route('dashboard.grade.guru.karakter') }}" class="btn btn-warning">Rating Guru Berdasarkan Karakter</a></td>
                                     </tr>
                                 </tbody>
                             </table>

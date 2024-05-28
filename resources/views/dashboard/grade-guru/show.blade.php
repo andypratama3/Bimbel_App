@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card" id="card">
-                <h5 class="card-title text-center"><a href="{{ route('dashboard.grade.guru.index') }}" class="btn btn-warning btn-sm float-start" style="margin-left: 20px;">Kembali</a> Data Grade {{ $grades->first()->guru->name }}</a>
+                <h5 class="card-title text-center"><a href="{{ route('dashboard.grade.guru.rating') }}" class="btn btn-warning float-start" style="margin-left: 10px;">Kembali</a> Data Grade {{ $grades->first()->guru->name }}</a>
                 </h5>
                 <div class="card-body">
                     <table class="table table-responsive table-hover text-center fon">

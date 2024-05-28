@@ -1,30 +1,31 @@
-<?php
+    <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+    use Illuminate\Database\Migrations\Migration;
+    use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    return new class extends Migration
     {
-        Schema::create('grade_gurus', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('bimbel_id');
-            $table->string('guru_id');
-            $table->string('kriteria_id');
-            $table->timestamps();
-        });
-    }
+        /**
+         * Run the migrations.
+         */
+        public function up(): void
+        {
+            Schema::create('grade_gurus', function (Blueprint $table) {
+                $table->uuid('id')->primary();
+                $table->string('bimbel_id');
+                $table->string('guru_id');
+                $table->string('kriteria_id');
+                $table->string('jenjang');
+                $table->timestamps();
+            });
+        }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('grade_gurus');
-    }
-};
+        /**
+         * Reverse the migrations.
+         */
+        public function down(): void
+        {
+            Schema::dropIfExists('grade_gurus');
+        }
+    };

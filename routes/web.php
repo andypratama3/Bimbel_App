@@ -79,6 +79,11 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role:0,1,2']],
     Route::resource('dokumentasis', DokumentasiController::class, ['names' => 'dashboard.dokumentasi']);
     Route::get('/siswas-bimbel-export',[DashboardSiswaBimbelController::class, 'exportExcel'])->name('dashboard.datamaster.siswa.bimbel.export');
 
+
+    Route::get('/grades/guru/karakter/',[DashboardGradeGuruController::class, 'gradeKrakter'])->name('dashboard.grade.guru.karakter');
+    Route::get('/grades/guru/',[DashboardGradeGuruController::class, 'grade'])->name('dashboard.grade.guru.rating');
+
+
     // Route::resource('data-anak', DashboardDataAnakController::class, ['names' => 'dashboard.data-anak']);
     Route::resource('guru', DashboardGuruBimbelController::class, ['names' => 'dashboard.guru']);
 
