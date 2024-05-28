@@ -1,28 +1,26 @@
 <?php
 
 namespace App\Models;
-
 use App\Http\Traits\UsesUuid;
-use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\NameHasSlug;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class GradeGuru extends Model
+class GuruBimbel extends Model
 {
     use HasFactory,UsesUuid;
-    protected $table = 'grade_gurus';
+
+    protected $table = 'guru_bimbels';
+
     protected $fillable = [
         'bimbel_id',
         'guru_id',
-        'kriteria_id',
+        'jam_les',
+        'jadwal_hari',
     ];
 
-    public function bimbel()
-    {
-        return $this->belongsTo(Bimbel::class, 'bimbel_id', 'id');
-    }
     public function guru()
     {
         return $this->belongsTo(Guru::class, 'guru_id', 'id');
     }
-
 }

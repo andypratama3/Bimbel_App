@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('grade_gurus', function (Blueprint $table) {
+        Schema::create('guru_bimbels', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('bimbel_id');
-            $table->string('guru_id');
-            $table->string('kriteria_id');
+            $table->time('jam_les');
+            $table->string('jadwal_hari');
+            $table->foreignUuid('bimbel_id')->nullable()->references('id')->on('bimbels')->onDelete('cascade');
+            $table->foreignUuid('guru_id')->nullable()->references('id')->on('gurus')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('grade_gurus');
+        Schema::dropIfExists('guru_bimbels');
     }
 };

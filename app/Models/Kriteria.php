@@ -17,4 +17,9 @@ class Kriteria extends Model
         'name',
         'slug',
     ];
+
+    public function guru()
+    {
+        return $this->belongsToMany(Guru::class, 'guru_kriteria');
+    }
 }

@@ -25,6 +25,20 @@
                   </div>
                 </div>
                 <div class="row mb-3">
+                    <label for="" class="col-sm-2 col-form-label">Jenjang <code>*</code></label>
+                    <div class="col-sm-10">
+                        <select name="jenjang" id="" class="form-control">
+                            <option selected value="{{ $guru->jenjang }}">{{ $guru->jenjang }}</option>
+                            <option value="Belum Sekolah" @if (old('jenjang_sekolah') == "Belum Sekolah") {{ 'selected' }} @endif>Belum Sekolah</option>
+                            <option value="Paud" @if (old('jenjang_sekolah') == "Paud") {{ 'selected' }} @endif>Paud</option>
+                            <option value="SD/MI" @if (old('jenjang_sekolah') == "SD/MI") {{ 'selected' }} @endif>SD/MI</option>
+                            <option value="SMP/MTS" @if (old('jenjang_sekolah') == "SMP/MTS") {{ 'selected' }} @endif>SMP/MTS</option>
+                            <option value="SMA/MAN/SMK" @if (old('jenjang_sekolah') == "SMA/MAN/SMK") {{ 'selected' }} @endif>SMA/MAN/SMK</option>
+                        </select>
+                    </div>
+                  </div>
+
+                <div class="row mb-3">
                   <label for="" class="col-sm-2 col-form-label">Mata Pelajaran <code>*</code></label>
                   <div class="col-sm-10">
                     <input type="text" class="form-control" name="mata_pelajaran" value="{{ $guru->whatsapp }}" placeholder="Contoh: Ipa,Ips">

@@ -15,9 +15,11 @@
                         <div class="col-md-12 mt-2">
                             <div class="form-group">
                                 <label for="name">Karakter Guru<code>*</code></label>
-                                <select name="karakter" multiple id="bimbel" class="form-control select2" data-placeholder="Pilih Karakter Guru">
+                                <select name="kriteria_id" multiple id="kriteria" class="form-control select2" data-placeholder="Pilih Karakter Guru">
                                     <option disabled>Pilih Karakter </option>
-
+                                    @foreach ($kriterias as $kriteria)
+                                            <option value="{{ $kriteria->id }}"> {{ $kriteria->name }}</option>
+                                    @endforeach
                                 </select>
                                 @error('karakter')
                                 <div class="invalid-feedback">{{ $message }}</div>

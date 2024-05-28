@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bimbel;
+// use App\Models\Karakter;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,7 @@ class RegisterBimbelController extends Controller
 {
     public function index()
     {
+
         return view('register_bimbel.index');
     }
 
@@ -24,11 +26,10 @@ class RegisterBimbelController extends Controller
             'bimbingan_konsultasi' => 'required',
             'program_les' => 'required',
             'jumlah_pertemuan' => 'required',
-            'jadwal_hari' => 'required',
-            'jam_les' => 'required',
+            // 'jadwal_hari' => 'required',
+            // 'jam_les' => 'required',
             'tanggal_mulai' => 'required',
             'pelajaran_tertentu' => 'required',
-            'mengaji' => 'required',
             'alamat' => 'required',
             'asal_sekolah' => 'required',
             'agama' => 'required',
@@ -38,7 +39,7 @@ class RegisterBimbelController extends Controller
 
        ]);
 
-       $jadwal_hari = implode(',', $request->jadwal_hari);
+    //    $jadwal_hari = implode(',', $request->jadwal_hari);
        $image_pembayaran = $request->image_pembayaran;
        if($image_pembayaran){
             $foto = $image_pembayaran;
@@ -60,8 +61,8 @@ class RegisterBimbelController extends Controller
                     'bimbingan_konsultasi' => $request->bimbingan_konsultasi,
                     'program_les' => $request->program_les,
                     'jumlah_pertemuan' => $request->jumlah_pertemuan,
-                    'jadwal_hari' => $jadwal_hari,
-                    'jam_les' => $request->jam_les,
+                    // 'jadwal_hari' => $jadwal_hari,
+                    // 'jam_les' => $request->jam_les,
                     'tanggal_mulai' => $request->tanggal_mulai,
                     'pelajaran_tertentu' => $request->pelajaran_tertentu,
                     'mengaji' => $request->mengaji,
@@ -73,15 +74,13 @@ class RegisterBimbelController extends Controller
                     'catatan_anak_didik' => $request->catatan_anak_didil,
                     'catatan_guru_les' => $request->catatan_guru_les,
                     'informasi_bimbel' => $request->informasi_bimbel,
-                    'user_id' => Auth::user()->id,
+                    'user_id' => Auth::id(),
                     'image_pembayaran' => $picture_name,
             ]);
-
             return redirect()->route('register.bimbel.status')->with('Sukses Mendaftar');
         }else{
             return redirect()->route('login')->with('error', 'Login Terlebih Dahulu');
         }
-    //    return redirect()->route('register.bimbel.status')->with('Sukses Mendaftar');
     }
 
     public function status()

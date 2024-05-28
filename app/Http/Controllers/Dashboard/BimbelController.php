@@ -5,13 +5,19 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Bimbel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class BimbelController extends Controller
 {
     public function index()
     {
         $limit = 20;
-        $register_Data = Bimbel::orderBy('created_at','asc')->where('status', '0')->paginate($limit);
+        if(Auth::user()->role == 0){
+            $register_Data = Bimbel::orderBy('created_at','asc')->where('user_id', Auth::id())->paginate($limit);
+        }else{
+            $register_Data = Bimbel::orderBy('created_at','asc')->where('status', '0')->paginate($limit);
+
+        }
         $no = $limit * ($register_Data->currentPage() - 1);
         return view('dashboard.data.bimbel.registrasi.index', compact('register_Data','no'));
     }
@@ -35,8 +41,9 @@ class BimbelController extends Controller
             'status' => 'required',
         ]);
         $bimbel->status = $request->status;
-        if ($request->status == '1') {
+        if ($request->status == 1) {
             $bimbel->user->update(['role' => 0]);
+            // dd($bimbel);
         }
 
         if($request->alasan != null){

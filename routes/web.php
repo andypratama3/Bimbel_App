@@ -19,7 +19,7 @@ use App\Http\Controllers\Dashboard\PendaftarGuruController as DashboardPendaftar
 use App\Http\Controllers\Dashboard\UserController as DashboardUserController;
 use App\Http\Controllers\Dashboard\ProfileController as DashboardProfileController;
 use App\Http\Controllers\Dashboard\KriteriaController as DashboardKriteriaController;
-
+use App\Http\Controllers\Dashboard\GuruBimbelController as DashboardGuruBimbelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,6 +79,8 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role:0,1,2']],
     Route::resource('dokumentasis', DokumentasiController::class, ['names' => 'dashboard.dokumentasi']);
     Route::get('/siswas-bimbel-export',[DashboardSiswaBimbelController::class, 'exportExcel'])->name('dashboard.datamaster.siswa.bimbel.export');
 
+    // Route::resource('data-anak', DashboardDataAnakController::class, ['names' => 'dashboard.data-anak']);
+    Route::resource('guru', DashboardGuruBimbelController::class, ['names' => 'dashboard.guru']);
 
 });
 

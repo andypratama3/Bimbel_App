@@ -43,6 +43,7 @@
                             <td>
                                 <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.show', $data->slug) }}" class="btn btn-secondary btn-sm"><i class="bi bi-eye"></i></a>
                                 <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.edit', $data->slug) }}" class="btn btn-warning btn-sm"><i class="bi bi-pen"></i></a>
+                                @if(Auth::user()->role == 1)
                                 <a href="#" data-id="{{ $data->slug }}" class="btn btn-danger btn-sm delete"
                                     title="Hapus">
                                     <form action="{{ route('dashboard.datamaster.pendaftar.bimbel.destroy', $data->slug) }}"
@@ -51,6 +52,8 @@
                                         @method('delete')
                                     </form>
                                     <i class="bi bi-trash"></i>
+                                    @else
+                                    @endif
                             </td>
                         </tr>
                     @empty

@@ -1,4 +1,7 @@
 @extends('layouts.app.user')
+@push('css')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endpush
 @section('title', 'Daftar Bimbel')
 @section('content')
 <!-- ======= About Section ======= -->
@@ -61,15 +64,17 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-2 form-field">
-                            <div class="form-group">
-                                <label for="">Jenjang <code>*</code></label>
-                                <input type="text" class="form-control" name="mata_pelajaran"
-                                    value="{{ old('mata_pelajaran') }}" placeholder="Contoh : Ipa,Ips">
-                                <div class="invalid-feedback"></div>
-                            </div>
-                        </div>
 
+                        <div class="col-md-12 mt-2 form-field">
+                            <div class="form-group"></div>
+                                <label for="">Kriteria Diri <code>*</code></label>
+                                <select name="kriteria_id[]" multiple id="" class="form-control select2">
+                                    <option disabled>Pilih kriteria</option>
+                                    @foreach ($kriteria as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
+                        </div>
                         <div class="col-md-12 mt-2">
                             <a href="/" class="btn btn-danger">Kembali</a>
                             <button type="button" id="submit-form" class="btn btn-success float-end">Submit</button>
@@ -81,8 +86,12 @@
     </div>
 </section>
 @push('js')
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script>
     $(document).ready(function () {
+        $('.select2').select2({
+            placeholder: "Pilih kriteria",
+        });
         $('#submit-form').click(function (event) {
             event.preventDefault(); // prevent default form submission
 
@@ -93,7 +102,7 @@
             var name = $("input[name='name']").val().trim();
             var cv = $("input[name='cv']").val().trim();
             var whatsapp = $("input[name='whatsapp']").val().trim();
-            var mata_pelajaran = $("input[name='mata_pelajaran']").val().trim();
+            // var mata_pelajaran = $("input[name='mata_pelajaran']").val().trim();
 
             if (name === '') {
                 $(".form-field input[name='name']").siblings(".invalid-feedback").text("Nama tidak boleh kosong").show();
@@ -110,10 +119,10 @@
                 return;
             }
 
-            if (mata_pelajaran === '') {
-                $(".form-field input[name='mata_pelajaran']").siblings(".invalid-feedback").text("Mata Pelajaran tidak boleh kosong").show();
-                return;
-            }
+            // if (mata_pelajaran === '') {
+            //     $(".form-field input[name='mata_pelajaran']").siblings(".invalid-feedback").text("Mata Pelajaran tidak boleh kosong").show();
+            //     return;
+            // }
 
             // If all fields are valid, proceed with form submission confirmation
             Swal.fire({

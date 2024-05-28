@@ -20,6 +20,7 @@ class Guru extends Model
             'paket',
             'status',
             'foto',
+            'jenjang',
             'slug',
     ];
 
@@ -31,5 +32,15 @@ class Guru extends Model
     public function grade()
     {
         return $this->hasMany(GradeGuru::class, 'guru_id');
+    }
+
+    /**
+     * The kriteria that belong to the Guru
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function kriteria()
+    {
+        return $this->belongsToMany(Kriteria::class, 'guru_kriteria');
     }
 }

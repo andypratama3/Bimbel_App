@@ -175,16 +175,34 @@
                                     </div>
                                     @else
                                     @endif
-                                    <div class="col-md-6 mt-2" id="alasan_field">
+                                    <div class="col-md-6 mt-2">
                                         <div class="form-group">
-                                            <label for="">Konfirmasi Siswa</label>
+                                            <label for="">Konfirmasi Status Siswa Bimbel</label>
+                                        @if(Auth::user()->role == 1)
                                             <select name="status" class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" id="status">
-                                                <option selected disabled>Pilih Konfirmasi</option>
-                                                <option value="0">Tolak</option>
-                                                <option value="1">Belum Di Terima</option>
+                                                @if($bimbel->status == 0)
+                                                    <option selected disabled>Pilih Konfirmasi</option>
+                                                @else
+                                                    <option value="{{ $bimbel->status }}">{{ $bimbel->status == 2 ? 'Diterima' : 'Ditolak' }}</option>
+                                                @endif
+                                                <option value="1">Tolak</option>
                                                 <option value="2">Terima</option>
                                             </select>
-
+                                            @else
+                                                <p class="badge bg-success">{{ $bimbel->status == 2 ? 'Diterima' : 'Ditolak' }}</p>
+                                            @endif
+                                                @if($bimbel->alasan != null)
+                                                <div class="col-md-12 mt-2" id="field_alasan">
+                                                    <div class="form-group">
+                                                        <label for="">Alasan</label>
+                                                        <textarea class="form-control text-area" name="alasan" id="" >{{ $bimbel->alasan }}</textarea>
+                                                    </div>
+                                                </div>
+                                                @else
+                                                <div class="col-md-12 mt-2" id="field_alasan">
+                                                        {{-- field --}}
+                                                </div>
+                                                @endif
                                         </div>
                                         @error('status')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -198,7 +216,10 @@
                                     </div>
                                     <div class="col-md-12 mt-5">
                                         <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="btn btn-danger">Kembali</a>
-                                        <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                        @if(Auth::user()->role == 1)
+                                            <button type="submit" class="btn btn-primary float-end">Submit</button>
+                                        @else
+                                        @endif
                                     </div>
                             </div>
                         </div>
@@ -213,17 +234,15 @@
 <script>
     $(document).ready(function() {
         $('#status').on('change', function() {
-            if ($(this).val() == 0) {
-                $('#alasan_field').append(`
-                    <div class="col-md-12 mt-2" id="alasan_field_show">
+            if($(this).val() == 2) {
+               $('#field_alasan').remove();
+            }else {
+                $('#field_alasan').append(`
                         <div class="form-group">
                             <label for="">Alasan</label>
                             <textarea class="form-control text-area" name="alasan" id="" placholder="Silahkan Masukan Alasan Tidak Di Terima"></textarea>
                         </div>
-                    </div>
                 `);
-            } else {
-                $('#alasan_field_show').remove();
             }
         });
     });

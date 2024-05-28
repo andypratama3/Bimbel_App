@@ -53,10 +53,11 @@ class GuruController extends Controller
         $guru->name = $request->name;
         $guru->whatsapp = $request->whatsapp;
         $guru->mata_pelajaran = $request->mata_pelajaran;
-        $guru->status = '2';
+        $guru->status = 2;
         $guru->paket = '1';
         $guru->foto = $picture_name;
         $guru->user_id = $user->id;
+        $guru->jenjang = $request->jenjang;
         $guru->save();
         return redirect()->route('dashboard.datamaster.guru.index')->with('success','Berhasil Menambah Guru');
     }
@@ -70,6 +71,7 @@ class GuruController extends Controller
     public function update(Request $request, $slug)
     {
         $guru = Guru::where('slug', $slug)->firstOrFail();
+        // dd($guru);
         $request->validate([
             'name' => 'required',
             'whatsapp' => 'required',
@@ -94,8 +96,10 @@ class GuruController extends Controller
         $guru->name = $request->name;
         $guru->whatsapp = $request->whatsapp;
         $guru->mata_pelajaran = $request->mata_pelajaran;
-        $guru->status = $guru->status;
+        $guru->jenjang = $request->jenjang;
         $guru->user_id = $user->id;
+        $guru->foto = $picture_name;
+        $user->role = $request->role;
         $guru->update();
 
         return redirect()->route('dashboard.datamaster.guru.index')->with('success','Berhasil Update Guru');

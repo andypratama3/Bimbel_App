@@ -160,7 +160,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md-6 mt-2">
+                        {{-- <div class="col-md-6 mt-2">
                             <label for="">Jadwal Hari Les <code>*</code></label>
                             <div class="form-group">
                                 <input class="form-check-input" type="checkbox" name="jadwal_hari[]" id="Senin" value="Senin" @if(in_array('Senin', old('jadwal_hari', []))) {{ 'checked' }} @endif>
@@ -176,7 +176,7 @@
                                 <input class="form-check-input" type="checkbox" name="jadwal_hari[]" id="Sabtu" value="Sabtu" @if(in_array('Sabtu', old('jadwal_hari', []))) {{ 'checked' }} @endif>
                                 <label class="form-check-label" for="Sabtu">Sabtu</label>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-12 mt-4">
                             <div class="form-group text-center">
                                 <img src="{{ asset('assets/img/draft-biaya.png') }}" alt="" class="img-fluid">
@@ -206,21 +206,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="col-md-6 mt-2">
-                            <div class="form-group">
-                                <ul class="ul-font-size">
-                                    <p style="margin: 0 !important;">Note :</p>
-                                    <li>Durasi Waktu Belajar 1 Jam 15 Menit (75 Menit) untuk Bimbingan Calistung hingga SMA/SMK baik Program regular maupun islami </li>
-                                    <li>Durasi Waktu Belajar 1 Jam (60 Menit) untuk Bimbingan BTQ (Baca Tulis Al-qur'an) dan Mengaji saja</li>
-                                    <li>Silahkan memilih waktu les sesuai dengan waktu kerja bimbel kami yakni mulai pukul 8 pagi hingga 7 malam</li>
-                                </ul>
-                                <label for="">Jam Les Privat <code>*</code></label>
-                                <input type="time" class="form-control {{ $errors->has('jam_les') ? 'is-invalid' : '' }}" name="jam_les" value="{{ old('jam_les') }}">
-                            </div>
-                            @error('jam_les')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
+                
                         <div class="col-md-6 mt-2">
                             <div class="form-group">
                                 <ul class="ul-font-size-pelajaran">

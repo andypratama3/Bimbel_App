@@ -36,6 +36,7 @@
             <i class="bi bi-circle"></i><span>Guru Bimbel</span>
           </a>
         </li>
+
       </ul>
 
     </li>
@@ -49,7 +50,7 @@
 
       <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.kriteria.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.kriteria.index') }}">
-            <i class="bi bi-emoji-smile"></i>   
+            <i class="bi bi-emoji-smile"></i>
           <span>Kriteria Guru</span>
         </a>
       </li><!-- End Profile Page Nav -->
@@ -59,6 +60,12 @@
           <span>User</span>
         </a>
       </li><!-- End Profile Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.grade.guru.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.grade.guru.index') }}">
+            <i class="bi bi-star-fill"></i>
+          <span>Grade Guru</span>
+        </a>
+    </li>
       @elseif(Auth::user()->role == 2)
       <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.modul.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.modul.index') }}">
@@ -86,6 +93,16 @@
         </a>
       </li>
       @else
+      <li class="nav-item">
+        <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendafataran.bimbel.*') ? '' : 'collapsed' }}">
+          <i class="bi bi-book"></i><span>Data Pendaftaran Bimbel</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('dashboard.guru.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendafataran.bimbel.*') ? '' : 'collapsed' }}">
+          <i class="bi bi-book"></i><span>Guru Bimbel</span>
+        </a>
+      </li>
       <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.grade.guru.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.grade.guru.index') }}">
             <i class="bi bi-star-fill"></i>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Guru;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\User;
 class PendaftarGuruController extends Controller
 {
     public function index( )
@@ -23,6 +23,9 @@ class PendaftarGuruController extends Controller
     public function update(Request $request, $slug)
     {
         $guru = Guru::where('slug', $slug)->firstOrFail();
+        $user = User::where('id', $guru->user_id)->first();
+        $user->role = '2';
+        $user->update();
         $guru->status = $request->status;
         $guru->update();
         return redirect()->route('dashboard.datamaster.pendaftar.guru.index')->with('success','Berhasil Update Data');

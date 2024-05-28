@@ -22,8 +22,6 @@ class Bimbel extends Model
             'bimbingan_konsultasi',
             'program_les',
             'jumlah_pertemuan',
-            'jadwal_hari',
-            'jam_les',
             'tanggal_mulai',
             'pelajaran_tertentu',
             'mengaji',

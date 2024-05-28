@@ -20,12 +20,11 @@ return new class extends Migration
             $table->string('foto')->nullable();
 
             //jenjang tk,sd,smp, smk,
-            $table->string('jenjang')->nullable();
+            $table->string('jenjang');
 
             $table->string('paket')->nullable();
             //paket reguler,islami
             $table->string('mata_pelajaran');
-
             $table->foreignUuid('user_id')->nullable()->references('id')->on('users')->onDelete('cascade');
             $table->string('slug');
             $table->timestamps();

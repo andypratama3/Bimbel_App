@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Guru;
+use App\Models\Kriteria;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,7 +11,8 @@ class RegisterGuruController extends Controller
 {
     public function index()
     {
-        return view('register_guru.index');
+        $kriteria = Kriteria::all();
+        return view('register_guru.index' , compact('kriteria'));
     }
     public function status()
     {
@@ -36,6 +38,7 @@ class RegisterGuruController extends Controller
             $file->move($upload_path, $file_name);
        }
 
+
         if(Auth::check()){
             $guru = new Guru();
             $guru->name = $request->name;
@@ -44,7 +47,10 @@ class RegisterGuruController extends Controller
             $guru->whatsapp = $request->whatsapp;
             $guru->mata_pelajaran = $request->mata_pelajaran;
             $guru->user_id = Auth::id();
+            $guru->jenjang = $request->jenjang;
             $guru->save();
+
+            $guru->kriteria()->attach($request->kriteria_id);
         }else{
             return redirect()->route('login')->with('error','Login Terlebih Dahalu');
         }

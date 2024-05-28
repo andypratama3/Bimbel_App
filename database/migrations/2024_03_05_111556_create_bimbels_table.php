@@ -21,14 +21,12 @@ return new class extends Migration
             $table->string('bimbingan_konsultasi');
             $table->enum('program_les', ['Regular','Islami']);
             $table->string('jumlah_pertemuan');
-            $table->string('jadwal_hari');
-            $table->string('jam_les');
             $table->string('tanggal_mulai');
             $table->string('pelajaran_tertentu');
-            $table->string('mengaji');
+            $table->string('mengaji')->nullable();
             $table->longText('alamat');
             $table->string('asal_sekolah');
-            $table->string('agama');
+            $table->string('agama')->nullable();
             $table->string('orang_tua');
             $table->string('no_telp');
             $table->string('catatan_anak_didik')->nullable();
