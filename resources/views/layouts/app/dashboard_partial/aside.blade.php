@@ -61,6 +61,12 @@
         </a>
       </li><!-- End Profile Page Nav -->
       <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.modul.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.modul.index') }}">
+            <i class="bi bi-people"></i>
+          <span>Modul</span>
+        </a>
+      </li><!-- End Profile Page Nav -->
+      <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.grade.guru.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.grade.guru.index') }}">
             <i class="bi bi-star-fill"></i>
           <span>Grade Guru</span>
