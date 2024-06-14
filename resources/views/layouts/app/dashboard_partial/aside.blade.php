@@ -72,6 +72,18 @@
           <span>Grade Guru</span>
         </a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.dokumentasi.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.dokumentasi.index') }}">
+            <i class="bi bi-upload"></i>
+          <span>Dokumentasi Les</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.absensi.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.absensi.index') }}">
+            <i class="bi bi-newspaper"></i>
+          <span>Absensi</span>
+        </a>
+      </li>
       @elseif(Auth::user()->role == 2)
       <li class="nav-item">
         <a class="nav-link {{ Request::routeIs('dashboard.modul.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.modul.index') }}">
