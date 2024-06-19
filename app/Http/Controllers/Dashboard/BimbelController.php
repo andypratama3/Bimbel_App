@@ -49,7 +49,7 @@ class BimbelController extends Controller
         if($request->alasan != null){
             $bimbel->alasan = $request->alasan;
         }
-        $bimbel->save();
+        $bimbel->update();
         return redirect()->route('dashboard.datamaster.pendaftar.bimbel.index')->with('success','Berhasil Update Data');
     }
     public function destroy($slug)
