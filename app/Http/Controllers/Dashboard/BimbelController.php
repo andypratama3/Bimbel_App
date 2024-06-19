@@ -41,7 +41,7 @@ class BimbelController extends Controller
             'status' => 'required',
         ]);
         $bimbel->status = $request->status;
-        if ($request->status == 1) {
+        if ($request->status == 2) {
             $bimbel->user->update(['role' => 0]);
             // dd($bimbel);
         }
