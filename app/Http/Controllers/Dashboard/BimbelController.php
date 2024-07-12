@@ -44,6 +44,9 @@ class BimbelController extends Controller
         if ($request->status == 2) {
             $bimbel->user->update(['role' => 0]);
             // dd($bimbel);
+        }else{
+            // $bimbel->status = 1;
+            $bimbel->user->update(['role' => 0]);
         }
 
         if($request->alasan != null){

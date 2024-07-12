@@ -41,7 +41,10 @@ class GradeGuruController extends Controller
             $user = Auth::id();
             $bimbel_id = Bimbel::where('user_id', $user)->first();
             $grades = GradeGuru::with('guru')->where('bimbel_id', $bimbel_id->id)->paginate($limit);
-
+            if(!$grades)
+            {
+                return redirect()->route('dashboard')->with('error','Silahkan Daftarkan Murid Terlebih Dahulu');
+            }
         }
         $no = $limit * ($grades->currentPage() - 1);
 
