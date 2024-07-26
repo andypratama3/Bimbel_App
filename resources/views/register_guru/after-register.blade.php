@@ -18,7 +18,7 @@
             <div class="card-body">
                 <div class="col-md-12 text-center">
                     <h2>Pendaftaran Guru Sukses</h2>
-                    <h6>Silahkan Menunggu Konfirmasi Dari Admin Melalui WhatsApp <br> Terima Kasih</h6>
+                    <h6>Silahkan Menunggu Konfirmasi Dari Admin, Jika Telah Di Konfirmasi Maka Pada Bagian Atas Akan Ada Tombol Dashboard <br> Terima Kasih</h6>
                     <a href="/" class="btn btn-success">Halaman Utama</a>
                 </div>
             </div>

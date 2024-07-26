@@ -1,25 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Dashboard\ModulController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\Dashboard\MuridBimbel;
 use App\Http\Controllers\RegisterGuruController;
 use App\Http\Controllers\Dashboard\GuruController;
 use App\Http\Controllers\RegisterBimbelController;
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\DeskripsiAnakController;
+use App\Http\Controllers\Dashboard\ModulController;
 use App\Http\Controllers\Dashboard\AbsensiController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\DokumentasiController;
+use App\Http\Controllers\Dashboard\DeskripsiAnakController;
 use App\Http\Controllers\Dashboard\GuruController as DashboardGuruController;
+use App\Http\Controllers\Dashboard\UserController as DashboardUserController;
 use App\Http\Controllers\Dashboard\BimbelController as DashboardBimbelController;
+use App\Http\Controllers\Dashboard\ProfileController as DashboardProfileController;
+use App\Http\Controllers\Dashboard\KriteriaController as DashboardKriteriaController;
 use App\Http\Controllers\Dashboard\GradeGuruController as DashboardGradeGuruController;
+use App\Http\Controllers\Dashboard\GuruBimbelController as DashboardGuruBimbelController;
 use App\Http\Controllers\Dashboard\PaketBimbelController as DashboardPaketBimbelController;
 use App\Http\Controllers\Dashboard\SiswaBimbelController as DashboardSiswaBimbelController;
 use App\Http\Controllers\Dashboard\PendaftarGuruController as DashboardPendaftarGuruController;
-use App\Http\Controllers\Dashboard\UserController as DashboardUserController;
-use App\Http\Controllers\Dashboard\ProfileController as DashboardProfileController;
-use App\Http\Controllers\Dashboard\KriteriaController as DashboardKriteriaController;
-use App\Http\Controllers\Dashboard\GuruBimbelController as DashboardGuruBimbelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,6 +78,7 @@ Route::group(['prefix' => 'dashboard',  'middleware' => ['auth', 'role:0,1,2']],
 
     Route::resource('absensis', AbsensiController::class, ['names' => 'dashboard.absensi']);
     Route::resource('dokumentasis', DokumentasiController::class, ['names' => 'dashboard.dokumentasi']);
+    Route::resource('murids', MuridBimbel::class, ['names' => 'dashboard.murid']);
     Route::get('/siswas-bimbel-export',[DashboardSiswaBimbelController::class, 'exportExcel'])->name('dashboard.datamaster.siswa.bimbel.export');
 
 

@@ -14,13 +14,12 @@ class GuruBimbelController extends Controller
     {
         $user_id = Auth::id();
         $bimbel = Bimbel::where('user_id', $user_id)->first();
-        $guru_bimbel = GuruBimbel::where('bimbel_id', $bimbel->id)->get();
 
+        $guru_bimbel = GuruBimbel::where('bimbel_id', $bimbel->id)->get();
         if(!$guru_bimbel)
         {
             return redirect()->route('dashboard')->with('error','Silahkan Daftarkan Murid Terlebih Dahulu');
         }
-
         return view('dashboard.guru.index', compact('guru_bimbel'));
     }
 

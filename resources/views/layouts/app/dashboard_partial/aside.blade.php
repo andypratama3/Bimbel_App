@@ -110,6 +110,12 @@
           <span>Absensi</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link {{ Request::routeIs('dashboard.murid.*') ? '' : 'collapsed' }}" href="{{ route('dashboard.murid.index') }}">
+            <i class="bi bi-newspaper"></i>
+          <span>Murid</span>
+        </a>
+      </li>
       @else
       <li class="nav-item">
         <a href="{{ route('dashboard.datamaster.pendaftar.bimbel.index') }}" class="nav-link {{ Request::routeIs('dashboard.datamaster.pendafataran.bimbel.*') ? '' : 'collapsed' }}">

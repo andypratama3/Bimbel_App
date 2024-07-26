@@ -23,4 +23,9 @@ class GuruBimbel extends Model
     {
         return $this->belongsTo(Guru::class, 'guru_id', 'id');
     }
+
+    public function bimbel()
+    {
+        return $this->belongsTo(Bimbel::class, 'bimbel_id', 'id');
+    }
 }

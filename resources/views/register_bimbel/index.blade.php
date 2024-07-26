@@ -206,7 +206,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                
+
                         <div class="col-md-6 mt-2">
                             <div class="form-group">
                                 <ul class="ul-font-size-pelajaran">
@@ -323,6 +323,14 @@
                                     <input type="text" class="form-control" value="BRI : 9876543457689808765" readonly>
                                 </div>
                             </div>
+
+                            <div class="col-md-12 mt-2">
+                                <div class="form-group">
+                                    <label for="">Total Pembayaran</label>
+                                    <input type="text" class="form-control" id="total_pembayaran" readonly>
+                                </div>
+                                </div>
+                            </div>
                             <div class="col-md-12 mt-2">
                                 <div class="form-group">
                                     <label for="">Upload Bukti Pembayaran</label>
@@ -353,6 +361,14 @@
         const form1 = document.getElementById('form-1');
         const form2 = document.getElementById('form-2');
         const progressEl = document.getElementById("progress");
+
+
+        let bimbingan = document.getElementById('bimbingan_konsultasi');
+        let jumlah_pertemuan = document.getElementById('jumlah_pertemuan');
+
+        bimbingan.addEventListener('change', function () {
+            // console.log(jumlah_pertemuan.value);
+        });
 
         function nextOne() {
             form1.style.display = "none";
